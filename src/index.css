@@ -212,35 +212,6 @@
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-/* ---------------------------------------------------------------------- */
-/* Hero-only accent: a faint grid that drifts very slowly. Confined to    */
-/* the hero so it never fights with readability further down the page.   */
-/* ---------------------------------------------------------------------- */
-.hero-drift {
-  position: absolute;
-  inset: -44px;
-  background-image:
-    linear-gradient(to right, rgb(91 214 138 / 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(91 214 138 / 0.07) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: radial-gradient(ellipse 70% 65% at 30% 20%, black 30%, transparent 80%);
-  animation: hero-drift 26s linear infinite;
-}
-
-@keyframes hero-drift {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 216px 144px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-drift {
-    animation: none;
-  }
-}
 
 /* ---------------------------------------------------------------------- */
 /* Glitch text: idle by itself; a parent toggles .glitch-active in short  */

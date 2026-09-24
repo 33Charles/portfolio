@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Background from './components/Background'
 import BootSequence from './components/BootSequence'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -21,7 +20,6 @@ export default function App() {
 
   return (
     <>
-      <Background />
       {!booted && <BootSequence onDone={() => setBooted(true)} />}
       <div className={booted ? 'opacity-100' : 'opacity-0'}>
         <Header />

@@ -26,7 +26,7 @@ export default function Hero() {
             <span className="text-mute">$</span> whoami
           </p>
           <div>
-            <div className="flex items-center gap-3">
+            <div className="mt-2 flex items-center gap-3">
               <span className="h-px w-8 bg-phos/40" />
 
               <p className="font-mono text-md font-black italic tracking-[0.12em] text-phos/50 uppercase">
@@ -37,7 +37,7 @@ export default function Hero() {
             </div>
 
             <h1 className="mt-2 text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
-              <span className="font-sans bg-linear-to-r from-phos via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+              <span className="font-sans bg-linear-to-r from-phos/70 via-emerald-400/70 to-cyan-400/70 bg-clip-text text-transparent">
                 {site.name}
               </span>
             </h1>
