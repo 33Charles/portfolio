@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
@@ -13,6 +13,11 @@ const HOVER_SPEED_FACTOR = 0.18 // how much drift keeps going while hovered (not
 const SPEED_EASE = 0.03
 const MIN_SPEED = 0.004 // px/ms
 const MAX_SPEED = 0.013 // px/ms
+
+const DIM_ALPHA_HOVER = 0.14 // node/edge not connected to the hovered node
+const DIM_ALPHA_FILTER = 0.1 // node/edge excluded by the active category filter
+
+const ALL_CATEGORIES = Object.keys(CATEGORY_LABELS) as SkillCategory[]
 
 interface NodeState {
   id: string
@@ -33,10 +38,41 @@ export default function SkillsGraph() {
   const hoveredRef = useRef<string | null>(null)
   const sizeRef = useRef({ width: 0, height: 0 })
   const reduceMotionRef = useRef(false)
+  const drawRef = useRef<(() => void) | null>(null)
 
   const [tooltip, setTooltip] = useState<{ x: number; y: number; label: string; category: SkillCategory } | null>(
     null,
   )
+
+  // Empty set = no filter, everything shown. Otherwise: only these categories are "in play".
+  const [activeCategories, setActiveCategories] = useState<Set<SkillCategory>>(new Set())
+  const activeCategoriesRef = useRef<Set<SkillCategory>>(new Set())
+  useEffect(() => {
+    activeCategoriesRef.current = activeCategories
+    if (reduceMotionRef.current) drawRef.current?.()
+  }, [activeCategories])
+
+  const toggleCategory = (cat: SkillCategory) => {
+    setActiveCategories((prev) => {
+      const next = new Set(prev)
+      if (next.has(cat)) next.delete(cat)
+      else next.add(cat)
+      return next
+    })
+  }
+  const clearFilter = () => setActiveCategories(new Set())
+
+  // Adjacency map (id -> set of directly connected ids), built once from the data.
+  const neighborsById = useMemo(() => {
+    const map = new Map<string, Set<string>>()
+    for (const n of SKILL_NODES) map.set(n.id, new Set())
+    for (const e of SKILL_EDGES) {
+      if (!map.has(e.from) || !map.has(e.to)) continue
+      map.get(e.from)!.add(e.to)
+      map.get(e.to)!.add(e.from)
+    }
+    return map
+  }, [])
 
   // Deterministic-ish per-node pseudo-random helper so layout/velocity feel
   // organic (not synced) but reproducible across reloads of the same node set.
@@ -95,6 +131,11 @@ export default function SkillsGraph() {
       (e) => SKILL_NODES.some((n) => n.id === e.from) && SKILL_NODES.some((n) => n.id === e.to),
     )
 
+    const isInFilter = (category: SkillCategory) => {
+      const active = activeCategoriesRef.current
+      return active.size === 0 || active.has(category)
+    }
+
     const resize = () => {
       const rect = container.getBoundingClientRect()
       // Guard against a resize/layout feedback loop: only recompute when the
@@ -137,6 +178,7 @@ export default function SkillsGraph() {
       let closest: NodeState | null = null
       let closestDist = Infinity
       for (const node of nodesRef.current) {
+        if (!isInFilter(node.category)) continue // filtered-out nodes aren't hoverable
         const dx = node.x - mx
         const dy = node.y - my
         const dist = Math.hypot(dx, dy)
@@ -154,27 +196,60 @@ export default function SkillsGraph() {
 
       const hoveredId = hoveredRef.current
       const nodeById = new Map(nodesRef.current.map((n) => [n.id, n]))
+      const neighbors = hoveredId ? neighborsById.get(hoveredId) : null
+      // While a node is hovered: it + its direct connections stay "in play"; everything else dims.
+      const highlightSet = hoveredId ? new Set<string>([hoveredId, ...(neighbors ?? [])]) : null
 
       // Edges first, underneath nodes.
       for (const edge of edgesResolved) {
         const a = nodeById.get(edge.from)
         const b = nodeById.get(edge.to)
         if (!a || !b) continue
-        const active = hoveredId && (edge.from === hoveredId || edge.to === hoveredId)
+
+        const filteredOut = !isInFilter(a.category) || !isInFilter(b.category)
+        const touchesHovered = hoveredId && (edge.from === hoveredId || edge.to === hoveredId)
+        const dimmedByHover = highlightSet !== null && !touchesHovered
+
+        let alpha = 0.1
+        let width_ = 0.8
+        if (filteredOut) {
+          alpha = DIM_ALPHA_FILTER * 0.4
+        } else if (touchesHovered) {
+          alpha = 0.5
+          width_ = 1.3
+        } else if (dimmedByHover) {
+          alpha = DIM_ALPHA_HOVER * 0.5
+        }
+
         ctx.beginPath()
         ctx.moveTo(a.x, a.y)
         ctx.lineTo(b.x, b.y)
-        ctx.strokeStyle = active ? 'rgba(219, 231, 223, 0.45)' : 'rgba(219, 231, 223, 0.1)'
-        ctx.lineWidth = active ? 1.2 : 0.8
+        ctx.strokeStyle = `rgba(219, 231, 223, ${alpha})`
+        ctx.lineWidth = width_
         ctx.stroke()
       }
 
       // Nodes on top.
       for (const node of nodesRef.current) {
+        const filteredOut = !isInFilter(node.category)
         const isHovered = node.id === hoveredId
-        const radius = isHovered ? NODE_RADIUS + 2 : NODE_RADIUS
+        const inHighlight = highlightSet === null || highlightSet.has(node.id)
 
-        if (isHovered) {
+        let alpha = 0.85
+        let radius = NODE_RADIUS
+        if (filteredOut) {
+          alpha = DIM_ALPHA_FILTER
+        } else if (isHovered) {
+          alpha = 1
+          radius = NODE_RADIUS + 2
+        } else if (!inHighlight) {
+          alpha = DIM_ALPHA_HOVER
+        } else if (highlightSet !== null) {
+          // A direct neighbor of the hovered node — full brightness, same size.
+          alpha = 1
+        }
+
+        if (isHovered && !filteredOut) {
           ctx.beginPath()
           ctx.arc(node.x, node.y, radius + 6, 0, Math.PI * 2)
           ctx.fillStyle = `${node.color}33`
@@ -184,11 +259,13 @@ export default function SkillsGraph() {
         ctx.beginPath()
         ctx.arc(node.x, node.y, radius, 0, Math.PI * 2)
         ctx.fillStyle = node.color
-        ctx.globalAlpha = isHovered ? 1 : 0.85
+        ctx.globalAlpha = alpha
         ctx.fill()
         ctx.globalAlpha = 1
       }
     }
+
+    drawRef.current = draw
 
     let raf = 0
     let lastT = performance.now()
@@ -280,30 +357,60 @@ export default function SkillsGraph() {
       canvas.removeEventListener('mouseleave', onLeave)
       if (raf) cancelAnimationFrame(raf)
     }
-  }, [])
+  }, [neighborsById])
 
   return (
-    <div
-      ref={containerRef}
-      className="relative hidden h-[420px] w-full overflow-hidden rounded-lg border border-line bg-line/5 lg:block"
-    >
-      <canvas ref={canvasRef} className="skills-graph-canvas" />
-      {tooltip && (
-        <div
-          className="skills-graph-tooltip"
-          style={{ left: tooltip.x, top: tooltip.y }}
-        >
-          {tooltip.label}
-          <span
-            className="skills-graph-tooltip__category"
-            style={{ color: CATEGORY_COLORS[tooltip.category] }}
+    <div className="w-full">
+      <p className="mb-3 font-mono text-xs text-mute">
+        <span className="text-phos-dim">// </span>live map of what I actually work with
+      </p>
+
+      <div
+        ref={containerRef}
+        className="relative hidden h-[420px] w-full overflow-hidden rounded-lg border border-line bg-line/5 lg:block"
+      >
+        <canvas ref={canvasRef} className="skills-graph-canvas" />
+        {tooltip && (
+          <div className="skills-graph-tooltip" style={{ left: tooltip.x, top: tooltip.y }}>
+            {tooltip.label}
+            <span className="skills-graph-tooltip__category" style={{ color: CATEGORY_COLORS[tooltip.category] }}>
+              {CATEGORY_LABELS[tooltip.category]}
+            </span>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-3 hidden flex-wrap items-center gap-2 lg:flex">
+        {ALL_CATEGORIES.map((cat) => {
+          const isActive = activeCategories.has(cat)
+          const color = CATEGORY_COLORS[cat]
+          return (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => toggleCategory(cat)}
+              className="flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[11px] transition-colors"
+              style={{
+                borderColor: isActive ? color : 'var(--color-line)',
+                color: isActive ? color : 'var(--color-mute)',
+                backgroundColor: isActive ? `${color}1a` : 'transparent',
+              }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
+              {CATEGORY_LABELS[cat]}
+            </button>
+          )
+        })}
+        {activeCategories.size > 0 && (
+          <button
+            type="button"
+            onClick={clearFilter}
+            className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-mute transition-colors hover:border-phos-dim hover:text-phos"
           >
-            {CATEGORY_LABELS[tooltip.category]}
-          </span>
-        </div>
-      )}
-      
+            show all
+          </button>
+        )}
+      </div>
     </div>
-    
   )
 }

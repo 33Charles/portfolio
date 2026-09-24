@@ -1,6 +1,5 @@
 import SkillsGraph from "./SkillsGraph";
 import { site } from "../site";
-import GlitchText from "./GlitchText";
 
 export default function Hero() {
   return (
@@ -100,31 +99,7 @@ export default function Hero() {
 
         <div>
           <SkillsGraph />
-          <div className="mt-6 flex flex-wrap gap-2">
-            <span className="rounded-full border border-[#5bd68a]/30 bg-[#5bd68a]/10 px-3 py-1 font-mono text-xs font-medium text-[#5bd68a]">
-              Active Directory
-            </span>
-
-            <span className="rounded-full border border-[#e6b450]/30 bg-[#e6b450]/10 px-3 py-1 font-mono text-xs font-medium text-[#e6b450]">
-              Web Pentesting
-            </span>
-
-            <span className="rounded-full border border-[#ff6b78]/30 bg-[#ff6b78]/10 px-3 py-1 font-mono text-xs font-medium text-[#ff6b78]">
-              Tooling
-            </span>
-
-            <span className="rounded-full border border-[#5ec8e6]/30 bg-[#5ec8e6]/10 px-3 py-1 font-mono text-xs font-medium text-[#5ec8e6]">
-              Fullstack
-            </span>
-
-            <span className="rounded-full border border-[#f4f811c4]/30 bg-[#f4f811c4]/10 px-3 py-1 font-mono text-xs font-medium text-[#f4f811c4]">
-              Languages and Scripting
-            </span>
-
-            <span className="rounded-full border border-[#e05cff]/30 bg-[#e05cff]/10 px-3 py-1 font-mono text-xs font-medium text-[#e05cff]">
-              SOC
-            </span>
-          </div>
+          
         </div>
       </div>
     </section>

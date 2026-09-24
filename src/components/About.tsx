@@ -19,12 +19,6 @@ export default function About() {
     color: "#ff6b78",
   },
   {
-    title: "Security Tooling",
-    description:
-      "Building practical tools and applications that support security testing, monitoring, analysis, and investigation.",
-    color: "#5ec8e6",
-  },
-  {
     title: "Full-Stack Development",
     description:
       "Building full-stack applications and APIs while combining software development with practical security considerations.",
@@ -46,8 +40,7 @@ export default function About() {
       </h2>
 
       <div className="mt-8 flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
-        {/* Main content — ~70% */}
-        <div className="lg:w-[50%]">
+        <div className="lg:w-[60%]">
           <div className="space-y-6 text-sm leading-[1.9] text-slate-300/80 sm:text-base">
             <p>
               I'm a cybersecurity practitioner and full-stack developer based in
@@ -77,7 +70,7 @@ export default function About() {
         </div>
 
         {/* Supporting expertise — ~30% */}
-        <div className="lg:w-[50%] lg:shrink-0">
+        <div className="lg:w-[40%] lg:shrink-0">
           <div className="space-y-3">
             {expertise.map((item) => (
               <div
