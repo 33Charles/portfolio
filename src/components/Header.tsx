@@ -3,20 +3,20 @@ import { site } from '../site'
 import GlitchText from './GlitchText'
 
 const NAV = [
-  { href: '#about', label: 'about' },
-  { href: '#skills', label: 'skills' },
-  { href: '#projects', label: 'projects' },
-  { href: site.notesPath, label: 'labs & notes', external: true },
-  { href: '#contact', label: 'contact' },
+  { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: site.notesPath, label: 'Labs & Notes', external: true },
+  { href: '#contact', label: 'Contact' },
 ]
 
 const ROLES = [
   site.handle,
-  'Penetration Tester... ',
-  'SOC Analyst... ',
-  'Security Researcher... ',
-  'Fullstack Developer... ',
-  'CTF Player... ',
+  'Penetration Tester ',
+  'SOC Analyst ',
+  'Security Researcher ',
+  'Fullstack Developer ',
+  'CTF Player ',
 ]
 
 export default function Header() {
@@ -92,7 +92,7 @@ export default function Header() {
               href={item.href}
               target={item.external ? '_blank' : undefined}
               rel={item.external ? 'noreferrer' : undefined}
-              className="text-mute transition-colors hover:text-phos"
+              className="text-ink transition-colors hover:text-phos"
             >
               {item.label}
             </a>

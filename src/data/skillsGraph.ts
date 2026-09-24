@@ -13,22 +13,21 @@ export interface SkillEdge {
 
 export const CATEGORY_LABELS: Record<SkillCategory, string> = {
   ad: 'Active Directory',
-  web: 'Web Application',
+  web: 'Web Pentesting',
   tooling: 'Tooling',
   fullstack: 'Fullstack',
   lang: 'Languages & Scripting',
   soc: 'SOC / Blue Team',
 }
 
-// Keep these visually distinct from each other and from the base site accent (--color-phos)
-// isn't required, since "ad" reuses it deliberately — AD is your primary focus.
+
 export const CATEGORY_COLORS: Record<SkillCategory, string> = {
-  ad: '#5bd68a', // phos green
-  web: '#e6b450', // amber
-  tooling: '#ff6b78', // red
-  fullstack: '#5ec8e6', // cyan
-  lang: '#b892ff', // violet
-  soc: '#f2a65a', // orange
+  ad: '#5bd68a',
+  web: '#e6b450', 
+  tooling: '#ff6b78', 
+  fullstack: '#5ec8e6',
+  lang: '#F7FD04', 
+  soc: '#e05cff', 
 }
 
 export const SKILL_NODES: SkillNode[] = [
@@ -40,7 +39,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: 'gpo-abuse', label: 'GPO Abuse', category: 'ad' },
   { id: 'constrained-delegation', label: 'Constrained Delegation', category: 'ad' },
 
-  // Web Application
+  // Web Pentesting
   { id: 'sqli', label: 'SQL Injection', category: 'web' },
   { id: 'xxe', label: 'XXE Injection', category: 'web' },
   { id: 'ssti', label: 'SSTI', category: 'web' },
@@ -51,7 +50,7 @@ export const SKILL_NODES: SkillNode[] = [
   { id: 'burp', label: 'Burp Suite', category: 'tooling' },
   { id: 'nmap', label: 'nmap', category: 'tooling' },
   { id: 'evil-winrm', label: 'evil-winrm', category: 'tooling' },
-  { id: 'chisel', label: 'chisel', category: 'tooling' },
+  { id: 'logolo', label: 'logolo', category: 'tooling' },
   { id: 'ghidra', label: 'Ghidra', category: 'tooling' },
   { id: 'x64dbg', label: 'x64dbg', category: 'tooling' },
 

@@ -1,5 +1,6 @@
 import SkillsGraph from "./SkillsGraph";
 import { site } from "../site";
+import GlitchText from "./GlitchText";
 
 export default function Hero() {
   return (
@@ -17,65 +18,114 @@ export default function Hero() {
       />
 
       {/* Dark overlay */}
-      <div
-        className="absolute inset-0 bg-bg/96"
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 bg-bg/96" aria-hidden="true" />
 
-      {/* Content */}
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="font-mono text-sm text-phos">
             <span className="text-mute">$</span> whoami
           </p>
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-phos/40" />
 
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-            {site.name}
-          </h1>
+              <p className="font-mono text-md font-black italic tracking-[0.12em] text-phos/50 uppercase">
+                {site.handle}
+              </p>
 
-          <p className="mt-2 font-mono text-lg text-mute">
-            security researcher &amp; frontend developer
-          </p>
+              <span className="h-px w-8 bg-phos/40" />
+            </div>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-mute sm:text-lg">
-            I break Active Directory environments and web applications to
-            understand how they fail, then build clean, production-grade
-            interfaces with React, TypeScript and Tailwind CSS. Based in{" "}
-            {site.location}.
-          </p>
+            <h1 className="mt-2 text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
+              <span className="font-sans bg-linear-to-r from-phos via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+                {site.name}
+              </span>
+            </h1>
+
+            <div className="mt-4 flex items-center gap-3 font-mono text-sm sm:text-base">
+              <span className="text-phos">01</span>
+              <span className="h-px w-3 bg-phos-dim" />
+              <span className="text-mute">
+                Security Researcher <span className="text-phos">·</span>{" "}
+                Full-Stack Developer
+              </span>
+            </div>
+
+            {/* Description */}
+            <p className="mt-7 max-w-xl border-l border-phos/30 pl-4 font-mono text-xs font-light leading-[1.8] tracking-[0.01em] text-slate-300/80 sm:text-sm">
+              Cybersecurity professional with hands-on experience in penetration
+              testing across Active Directory, web applications, networks, and
+              Windows and Linux environments. Experienced in security
+              operations, SIEM, endpoint monitoring, threat detection, and
+              threat hunting, with hands-on experience using Splunk, ELK, and
+              Sysmon. Full-stack developer building security-focused tools and
+              web applications.
+            </p>
+
+            <p className="mt-4 font-mono text-xs uppercase tracking-widest text-mute/70">
+              Based in {site.location}
+            </p>
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-3 font-mono text-sm">
             <a
               href="#projects"
-              className="rounded border border-phos-dim bg-phos/10 px-4 py-2 text-phos transition-colors hover:bg-phos hover:text-bg"
+              className="rounded-md border border-phos-dim bg-phos/10 px-4 py-2 text-phos transition-colors hover:bg-phos hover:text-bg"
             >
-              view work
+              view projects
             </a>
 
             <a
               href={site.notesPath}
               target="_blank"
               rel="noreferrer"
-              className="rounded border border-line px-4 py-2 text-ink transition-colors hover:border-phos-dim hover:text-phos"
+              className="rounded-md border border-line px-4 py-2 text-ink transition-colors hover:border-phos-dim hover:text-phos"
             >
               read write-ups
             </a>
 
             <a
               href="#contact"
-              className="rounded border border-line px-4 py-2 text-ink transition-colors hover:border-phos-dim hover:text-phos"
+              className="rounded-md border border-line px-4 py-2 text-ink transition-colors hover:border-phos-dim hover:text-phos"
             >
               get in touch
             </a>
           </div>
 
-          <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-line bg-line/10 px-5 py-2 font-mono text-xs text-mute">
-            <span className="status-dot" aria-hidden="true" />
-              Available for opportunities
-          </div>
+          <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-phos/20 px-4 py-2 font-mono text-[11px] uppercase tracking-wider">
+  <span className="status-dot" aria-hidden="true" />
+  Open to cybersecurity & development opportunities
+</div>
         </div>
 
-        <SkillsGraph />
+        <div>
+          <SkillsGraph />
+          <div className="mt-6 flex flex-wrap gap-2">
+            <span className="rounded-full border border-[#5bd68a]/30 bg-[#5bd68a]/10 px-3 py-1 font-mono text-xs font-medium text-[#5bd68a]">
+              Active Directory
+            </span>
+
+            <span className="rounded-full border border-[#e6b450]/30 bg-[#e6b450]/10 px-3 py-1 font-mono text-xs font-medium text-[#e6b450]">
+              Web Pentesting
+            </span>
+
+            <span className="rounded-full border border-[#ff6b78]/30 bg-[#ff6b78]/10 px-3 py-1 font-mono text-xs font-medium text-[#ff6b78]">
+              Tooling
+            </span>
+
+            <span className="rounded-full border border-[#5ec8e6]/30 bg-[#5ec8e6]/10 px-3 py-1 font-mono text-xs font-medium text-[#5ec8e6]">
+              Fullstack
+            </span>
+
+            <span className="rounded-full border border-[#f4f811c4]/30 bg-[#f4f811c4]/10 px-3 py-1 font-mono text-xs font-medium text-[#f4f811c4]">
+              Languages and Scripting
+            </span>
+
+            <span className="rounded-full border border-[#e05cff]/30 bg-[#e05cff]/10 px-3 py-1 font-mono text-xs font-medium text-[#e05cff]">
+              SOC
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

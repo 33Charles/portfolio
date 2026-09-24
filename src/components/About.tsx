@@ -12,7 +12,7 @@ export default function About() {
             React, TypeScript and Tailwind CSS, freelancing and working through
             DIJICOM, a product engineering studio in Nairobi.
           </p>
-          <p className="mt-4 text-base leading-relaxed text-mute sm:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-ink sm:text-lg">
             The two sides feed each other: understanding how applications get attacked
             makes me build them more carefully, and building real interfaces keeps my
             security work grounded in how systems are actually used.

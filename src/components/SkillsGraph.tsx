@@ -302,6 +302,8 @@ export default function SkillsGraph() {
           </span>
         </div>
       )}
+      
     </div>
+    
   )
 }
