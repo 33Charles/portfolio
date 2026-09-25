@@ -1,3 +1,5 @@
+import { FiArrowRight } from "react-icons/fi";
+
 export function ForensightOverlay({ onClose }: { onClose: () => void }) {
   return (
     <div
@@ -849,5 +851,11 @@ function ArchitectureBox({ title, lines }: { title: string; lines: string[] }) {
   );
 }
 function Arrow() {
-  return <span className="shrink-0 text-phos/40">→</span>;
+  return (
+    <FiArrowRight
+      className="shrink-0 text-phos/40"
+      size={20}
+      aria-hidden="true"
+    />
+  );
 }

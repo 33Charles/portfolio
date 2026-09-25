@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ForensightOverlay } from "./ForensightOverlay";
+import { FiArrowRight } from "react-icons/fi";
 
 type Project = {
   title: string;
@@ -88,7 +89,7 @@ export default function Projects() {
                     <span>01</span>
                   </div>
 
-                  <h3 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                     FORENSIGHT
                   </h3>
 
@@ -102,7 +103,7 @@ export default function Projects() {
                 </span>
               </div>
 
-              <p className="mt-7 max-w-4xl text-sm leading-[1.9] text-slate-300/80 sm:text-base">
+              <p className="mt-7 max-w-4xl text-sm leading-[1.9] text-slate-300/80 sm:text-md">
                 FORENSIGHT is a lightweight Linux-focused security monitoring
                 and threat detection system designed to centralize security
                 events from multiple hosts, analyze activity against
@@ -161,6 +162,7 @@ export default function Projects() {
                   "Python",
                   "Flask",
                   "React",
+                  "Bash",
                   "SQLite",
                   "rsyslog",
                   "auditd",
@@ -294,6 +296,11 @@ function ArchitectureNode({ label }: { label: string }) {
   );
 }
 function Arrow() {
-  return <span className="shrink-0 text-phos/40">→</span>;
+  return (
+    <FiArrowRight
+      className="shrink-0 text-phos/40"
+      size={20}
+      aria-hidden="true"
+    />
+  );
 }
-
