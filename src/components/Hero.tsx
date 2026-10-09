@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-bg/96" aria-hidden="true" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="font-mono text-sm text-phos">
             <span className="text-mute">$</span> whoami

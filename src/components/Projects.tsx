@@ -11,22 +11,22 @@ type Project = {
 
 const projects: Project[] = [
   {
-title: "Notely",
-category: "Full-Stack Development",
-description:
-"A full-stack note-taking and article-publishing platform built with React, TypeScript, and Node.js. Users can create and edit notes, publish public or private content, bookmark and pin notes, manage deleted content, customize account settings, and follow other users. The application includes authentication, profile management, and a dedicated REST API.",
-tags: [
-"React",
-"TypeScript",
-"Node.js",
-"Express",
-"Prisma",
-"PostgreSQL",
-"REST API",
-"JWT Authentication",
-],
-link: "https://notely-gray.vercel.app/",
-},
+    title: "Notely",
+    category: "Full-Stack Development",
+    description:
+      "A full-stack note-taking and article-publishing platform built with React, TypeScript, and Node.js. Users can create and edit notes, publish public or private content, bookmark and pin notes, manage deleted content, customize account settings, and follow other users. The application includes authentication, profile management, and a dedicated REST API.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "REST API",
+      "JWT Authentication",
+    ],
+    link: "https://notely-gray.vercel.app/",
+  },
   {
     title: "PluseFit",
     category: "Web Development",
@@ -86,38 +86,36 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="bg-bg px-5 py-24">
-        <div className="mx-auto max-w-6xl">
-          {/* Section label */}
-          <div className="flex items-center gap-3 font-mono text-xs text-mute">
-            <span className="text-phos-dim">03</span>
-            <span className="h-px flex-1 bg-line" />
-            <span className="uppercase tracking-widest">projects</span>
-          </div>
+      <section id="projects" className="bg-bg px-5 py-20 ">
+        <div className="mx-auto max-w-7xl">
 
-          {/* Heading */}
           <div className="mt-10 max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-phos/70 sm:text-3xl">
-              Selected Work
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-px w-8 bg-phos" />
+              <span className="font-mono text-xs uppercase tracking-[0.24em] text-phos">
+                What I've Built
+              </span>
+            </div>
+
+            <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Selected <span className="text-phos">Projects</span>
             </h2>
 
-            <p className="mt-4 text-sm leading-[1.8] text-mute sm:text-base">
-              Security tooling, research, and applications built through
-              practical experimentation and hands-on development.
+            <p className="mt-5 max-w-xl text-sm leading-7 text-mute sm:text-base">
+              Security tools, investigative work, and software applications
+              developed through hands-on experimentation and practical
+              problem-solving.
             </p>
           </div>
 
           {/* Featured Forensight project */}
-          {/* Featured Project — FORENSIGHT */}
           <article className="relative isolate mt-12 overflow-hidden rounded-2xl border border-white/[0.09] bg-gradient-to-br from-white/[0.04] via-[#0b0e0c]/90 to-[#080a09] shadow-[inset_0_1px_0_rgba(255,255,255,0.035),0_16px_50px_-30px_rgba(0,0,0,0.8)]">
-            {/* Subtle ambient tint */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(91,214,138,0.055),transparent_55%)]"
             />
 
             <div className="p-6 sm:p-8 lg:p-10">
-              {/* Header */}
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-phos/75">
@@ -136,14 +134,12 @@ export default function Projects() {
                   </p>
                 </div>
 
-                {/* Category badge */}
+   
                 <span className="inline-flex w-fit items-center gap-2 rounded-full border border-phos/20 bg-phos/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-phos/90">
                   <span className="h-1 w-1 rounded-full bg-phos" />
                   Security Tooling
                 </span>
               </div>
-
-              {/* Description */}
               <p className="mt-7 max-w-4xl text-sm leading-[1.9] text-ink/80 sm:text-base">
                 FORENSIGHT is a lightweight Linux-focused security monitoring
                 and threat detection system designed to centralize security
@@ -152,7 +148,6 @@ export default function Projects() {
                 real-time workflow for investigating and resolving alerts.
               </p>
 
-              {/* System Architecture */}
               <div className="mt-10">
                 <div className="flex items-center gap-3">
                   <span className="font-mono text-[10px] text-phos/50">//</span>
@@ -181,7 +176,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Technical Summary */}
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 <SummaryItem label="Collection" value="rsyslog + auditd" />
 
@@ -193,7 +187,7 @@ export default function Projects() {
                 />
               </div>
 
-              {/* Technologies */}
+  
               <div className="mt-8 flex flex-wrap gap-2">
                 {[
                   "Python",
@@ -216,7 +210,6 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Actions */}
               <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/[0.07] pt-6">
                 <button
                   type="button"
@@ -244,9 +237,8 @@ export default function Projects() {
           <section className="mt-20">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
-            
-                <h3 className="text-xl font-semibold tracking-tight text-ink">
-                  Other Projects<span className="text-phos">.</span>
+                <h3 className="text-3xl font-semibold tracking-tight text-ink">
+                  Other <span className="text-phos">Projects</span>
                 </h3>
               </div>
 
@@ -261,33 +253,26 @@ export default function Projects() {
                   key={project.title}
                   className="group relative isolate overflow-hidden rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.035] via-black/20 to-black/10 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-all duration-300 hover:-translate-y-0.5 hover:border-phos/30 hover:bg-white/[0.025] hover:shadow-[0_0_20px_-12px_rgba(91,214,138,0.35)]"
                 >
-                  {/* Subtle glass tint */}
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(91,214,138,0.045),transparent_60%)]"
                   />
-
-                  {/* Hover glow */}
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(91,214,138,0.09),transparent_65%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
 
-                  {/* Top row */}
                   <div className="relative flex items-center justify-between gap-3">
                     <span className="font-mono text-[10px] text-phos/70">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-
-                    {/* More visible category tag */}
                     <span className="inline-flex items-center gap-2 rounded-full border border-phos/20 bg-phos/[0.08] px-3 py-1.5 font-mono text-[9px] font-medium uppercase tracking-wider text-phos/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-sm transition-colors duration-300 group-hover:border-phos/35 group-hover:bg-phos/[0.12]">
                       <span className="h-1 w-1 rounded-full bg-phos shadow-[0_0_5px_rgba(91,214,138,0.5)]" />
                       {project.category}
                     </span>
                   </div>
 
-                  {/* Project content */}
-                  <h4 className="relative mt-5 text-base font-semibold leading-snug tracking-tight text-ink transition-colors duration-300 group-hover:text-white">
+                  <h4 className="relative mt-5 text-2xl font-semibold leading-snug tracking-tight text-ink transition-colors duration-300 group-hover:text-white">
                     {project.title}
                   </h4>
 
@@ -295,7 +280,6 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Technology tags */}
                   <div className="relative mt-4 flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
@@ -307,13 +291,10 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Footer */}
                   <div className="relative mt-5 flex items-center justify-between border-t border-white/[0.07] pt-3 transition-colors duration-300 group-hover:border-phos/15">
                     <span className="text-[9px] text-mute/45">
                       Project {String(index + 1).padStart(2, "0")}
                     </span>
-
-                    {/* More visible Explore button */}
                     <a
                       href={project.link}
                       target={
@@ -334,7 +315,6 @@ export default function Projects() {
                     </a>
                   </div>
 
-                  {/* Bottom accent */}
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-x-5 bottom-0 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-phos/60 to-transparent transition-transform duration-500 group-hover:scale-x-100"
@@ -373,9 +353,6 @@ function ArchitectureNode({ label }: { label: string }) {
   );
 }
 
-/** A connector between architecture nodes: a small glowing dot travels along
- * it, `delay` (seconds) staggers it against its neighbors so the pulse reads
- * as one continuous flow moving left to right through the pipeline. */
 function FlowArrow({ delay = 0 }: { delay?: number }) {
   return (
     <div

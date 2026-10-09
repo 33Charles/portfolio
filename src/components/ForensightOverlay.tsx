@@ -198,10 +198,6 @@ export function ForensightOverlay({
             </div>
           </section>
 
-          {/* Product preview
-              Add your actual screenshot at:
-              public/images/forensight-dashboard.png
-              Or change the image path below. */}
           <section className="mt-12">
             <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-phos/60">
@@ -652,8 +648,8 @@ export function ForensightOverlay({
             </p>
           </CaseStudySection>
 
-          {/* 12 Limitations */}
-          <CaseStudySection number="12" title="Limitations">
+          {/* 11 Limitations */}
+          <CaseStudySection number="11" title="Limitations">
             <p>
               FORENSIGHT is a learning and research project rather than a
               production SIEM. Its detection capabilities focus on a
@@ -677,8 +673,8 @@ export function ForensightOverlay({
             </p>
           </CaseStudySection>
 
-          {/* 14 What I learned */}
-          <CaseStudySection number="14" title="What I Learned">
+          {/* 12 What I learned */}
+          <CaseStudySection number="12" title="What I Learned">
             <p>
               Building FORENSIGHT provided practical experience with the
               challenges behind security monitoring systems: collecting
@@ -729,9 +725,6 @@ export function ForensightOverlay({
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                              CASE STUDY UI                                 */
-/* -------------------------------------------------------------------------- */
 
 function CaseStudySection({
   number,

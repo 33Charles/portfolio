@@ -14,7 +14,7 @@ import {
   AppWindow,
   Cable,
   type LucideIcon,
-} from "lucide-react"
+} from "lucide-react";
 
 // Category accent colors — shared with the skills graph.
 const CATEGORY_COLORS: Record<string, string> = {
@@ -23,7 +23,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Digital Forensics": "#ff6b78",
   "Security Tooling & Development": "#5ec8e6",
   "Systems & Networking": "#e6b450",
-}
+};
 
 export default function Skills() {
   const skills = [
@@ -173,27 +173,35 @@ export default function Skills() {
         },
       ],
     },
-  ]
+  ];
 
   return (
-    <section id="skills" className="bg-black/25 px-5 py-24">
-      <div className="mx-auto max-w-6xl">
-        {/* Section label */}
-        <div className="flex items-center gap-3 font-mono text-xs text-mute">
-          <span className="text-phos-dim">02</span>
-          <span className="h-px flex-1 bg-line" />
-          <span className="uppercase tracking-widest">skills</span>
+    <section id="skills" className="bg-black/25 px-4 py-24">
+      <div className="mx-auto max-w-7xl">
+
+        <div className="mb-10 max-w-2xl">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="h-px w-8 bg-phos" />
+            <span className="font-mono text-xs uppercase tracking-[0.24em] text-phos">
+              Areas of expertise
+            </span>
+          </div>
+
+          <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            Technical <span className="text-phos">Skills</span>
+          </h2>
+
+          <p className="mt-5 max-w-xl text-sm leading-7 text-mute sm:text-base">
+            A practical foundation in cybersecurity, software development,
+            networking, and systems administration, built through hands-on
+            projects, labs, and continuous learning.
+          </p>
         </div>
 
-        {/* Heading */}
-        <h2 className="mt-10 text-2xl font-semibold tracking-tight text-phos/70 sm:text-3xl">
-          Technical Skills
-        </h2>
-
-        {/* Main capability cards */}
+        {/* Main cards */}
         <div className="mt-12 space-y-6">
           {skills.map((group, groupIdx) => {
-            const color = CATEGORY_COLORS[group.category] ?? "#5bd68a"
+            const color = CATEGORY_COLORS[group.category] ?? "#5bd68a";
 
             return (
               <section
@@ -203,7 +211,6 @@ export default function Skills() {
                   borderColor: `${color}30`,
                 }}
               >
-                {/* Subtle category-colored ambient tint */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 -z-10"
@@ -212,7 +219,6 @@ export default function Skills() {
                   }}
                 />
 
-                {/* Category header */}
                 <div className="mb-6">
                   <div className="flex items-center gap-3">
                     <span
@@ -231,9 +237,7 @@ export default function Skills() {
                   </div>
 
                   <p className="mt-3 font-mono text-xs leading-[1.8] text-mute sm:text-sm">
-                    <span style={{ color: `${color}99` }}>
-                      {"// "}
-                    </span>
+                    <span style={{ color: `${color}99` }}>{"// "}</span>
                     {group.description}
                   </p>
                 </div>
@@ -241,8 +245,8 @@ export default function Skills() {
                 {/* Nested skill cards */}
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((skill) => {
-                    const isHandsOn = skill.level === "Hands-on"
-                    const Icon: LucideIcon = skill.icon
+                    const isHandsOn = skill.level === "Hands-on";
+                    const Icon: LucideIcon = skill.icon;
 
                     return (
                       <article
@@ -252,7 +256,6 @@ export default function Skills() {
                           ["--accent" as string]: color,
                         }}
                       >
-                        {/* Skill header */}
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex min-w-0 items-center gap-2.5">
                             <span
@@ -274,8 +277,6 @@ export default function Skills() {
                               {skill.title}
                             </h4>
                           </div>
-
-                          {/* Experience badge */}
                           <span
                             className="shrink-0 rounded-md px-2 py-1 font-mono text-[9px] uppercase tracking-wider"
                             style={
@@ -295,8 +296,6 @@ export default function Skills() {
                             {skill.level}
                           </span>
                         </div>
-
-                        {/* Skill depth indicator */}
                         <div
                           className="mt-4 flex items-center gap-1"
                           aria-hidden="true"
@@ -307,35 +306,29 @@ export default function Skills() {
                               className="h-1 w-5 rounded-full"
                               style={{
                                 backgroundColor:
-                                  i < skill.depth
-                                    ? color
-                                    : "var(--color-line)",
+                                  i < skill.depth ? color : "var(--color-line)",
                                 opacity: i < skill.depth ? 0.9 : 0.45,
                               }}
                             />
                           ))}
                         </div>
-
-                        {/* Skill description */}
                         <p className="mt-4 text-xs leading-[1.8] text-mute">
                           {skill.description}
                         </p>
-
-                        {/* Bottom accent */}
                         <span
                           aria-hidden="true"
                           className="absolute bottom-0 left-5 h-px w-0 transition-all duration-300 group-hover:w-10"
                           style={{ backgroundColor: color }}
                         />
                       </article>
-                    )
+                    );
                   })}
                 </div>
               </section>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }

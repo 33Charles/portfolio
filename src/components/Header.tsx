@@ -83,8 +83,6 @@ export default function Header() {
           <GlitchText text={displayText} />
           <span className="ml-0.5 animate-pulse">|</span>
         </a>
-
-        {/* Navigation */}
         <nav className="flex items-center gap-4 font-mono text-xs sm:gap-6 sm:text-sm">
           {NAV.map((item) => (
             <a
