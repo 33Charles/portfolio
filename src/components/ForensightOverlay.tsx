@@ -214,7 +214,7 @@ export function ForensightOverlay({
 
             <div className="overflow-hidden rounded-xl border border-line bg-black/60 p-2">
               <img
-                src="public/dashboard.png"
+                src="dashboard.png"
                 alt="Forensight security monitoring dashboard"
                 className="block h-auto w-full rounded-lg"
                 loading="lazy"

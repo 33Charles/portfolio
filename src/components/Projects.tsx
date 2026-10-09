@@ -11,22 +11,6 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Web Application Security Assessment",
-    category: "Offensive Security",
-    description:
-      "Practical assessment covering reconnaissance, enumeration, vulnerability discovery, exploitation, and impact analysis.",
-    tags: ["Burp Suite", "Nmap", "ffuf"],
-    link: "#",
-  },
-  {
-    title: "Active Directory Attack Path",
-    category: "Offensive Security",
-    description:
-      "Hands-on assessment of an Active Directory environment involving enumeration, credential attacks, privilege escalation, and lateral movement.",
-    tags: ["BloodHound", "Impacket", "NetExec"],
-    link: "#",
-  },
-  {
     title: "PluseFit",
     category: "Web Development",
     description:
@@ -34,6 +18,21 @@ const projects: Project[] = [
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     link: "https://pluse-fit.vercel.app/",
   },
+{
+  title: "Maasai BeadWork",
+  category: "Full-Stack Development",
+  description:
+    "A full-stack web application built around Maasai beadwork, combining a responsive React interface with a TypeScript and Express backend, Prisma ORM, and database integration.",
+  tags: [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Express",
+    "Prisma",
+    "PostgreSQL",
+  ],
+  link: "https://github.com/33Charles/maasaiBeadWork",
+},
 ];
 
 export default function Projects() {
