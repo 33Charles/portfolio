@@ -11,28 +11,54 @@ type Project = {
 
 const projects: Project[] = [
   {
+title: "Notely",
+category: "Full-Stack Development",
+description:
+"A full-stack note-taking and article-publishing platform built with React, TypeScript, and Node.js. Users can create and edit notes, publish public or private content, bookmark and pin notes, manage deleted content, customize account settings, and follow other users. The application includes authentication, profile management, and a dedicated REST API.",
+tags: [
+"React",
+"TypeScript",
+"Node.js",
+"Express",
+"Prisma",
+"PostgreSQL",
+"REST API",
+"JWT Authentication",
+],
+link: "https://notely-gray.vercel.app/",
+},
+  {
     title: "PluseFit",
     category: "Web Development",
     description:
-      "A modern, responsive fitness website built with React and TypeScript, featuring a polished interface styled with Tailwind CSS.",
+      "A modern, responsive gym and fitness website featuring workout programs for weight loss, yoga, strength training, rehabilitation, and endurance. Includes tiered membership plans, trainer profiles, member testimonials, and dedicated gym information pages, built with React, TypeScript, and Tailwind CSS.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     link: "https://pluse-fit.vercel.app/",
   },
-{
-  title: "Maasai BeadWork",
-  category: "Full-Stack Development",
-  description:
-    "A full-stack web application built around Maasai beadwork, combining a responsive React interface with a TypeScript and Express backend, Prisma ORM, and database integration.",
-  tags: [
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Express",
-    "Prisma",
-    "PostgreSQL",
-  ],
-  link: "https://github.com/33Charles/maasaiBeadWork",
-},
+  {
+    title: "Maasai BeadWork",
+    category: "Full-Stack Development",
+    description:
+      "A full-stack e-commerce platform for Maasai beadwork, enabling customers to browse and purchase handcrafted products while providing a marketplace for selling beadwork. Built with React, TypeScript, and an Express backend with Prisma ORM and database integration.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    link: "https://github.com/33Charles/maasaiBeadWork",
+  },
+
+  {
+    title: "ZaphTours",
+    category: "Web Development",
+    description:
+      "A responsive travel and tourism website for exploring destinations and tour packages. Features destination showcases, categorized travel experiences, individual and group pricing, featured tours, testimonials, and contact options to help visitors discover and inquire about travel experiences.",
+    tags: ["React", "TypeScript", "Vite", "Material UI", "React Router"],
+    link: "https://zaph-tours-six-vert.vercel.app/",
+  },
 ];
 
 export default function Projects() {
@@ -218,10 +244,7 @@ export default function Projects() {
           <section className="mt-20">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
-                <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.2em] text-phos/70">
-                  Selected work
-                </p>
-
+            
                 <h3 className="text-xl font-semibold tracking-tight text-ink">
                   Other Projects<span className="text-phos">.</span>
                 </h3>
@@ -268,7 +291,7 @@ export default function Projects() {
                     {project.title}
                   </h4>
 
-                  <p className="relative mt-2 text-xs leading-6 text-mute/80">
+                  <p className="relative mt-2 text-sm leading-6 text-mute/80">
                     {project.description}
                   </p>
 
