@@ -16,8 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react"
 
-// Category accent colors — reuses the same palette as the skills graph, so this
-// section and that one read as two views of the same information.
+// Category accent colors — shared with the skills graph.
 const CATEGORY_COLORS: Record<string, string> = {
   "Offensive Security": "#5bd68a",
   "Security Operations": "#e05cff",
@@ -36,7 +35,7 @@ export default function Skills() {
         {
           title: "Active Directory",
           level: "Hands-on",
-          depth: 3, 
+          depth: 3,
           icon: Network,
           description:
             "Active Directory enumeration, authentication and credential attacks, privilege escalation, lateral movement, and domain attack-path analysis.",
@@ -55,11 +54,10 @@ export default function Skills() {
           depth: 4,
           icon: Radar,
           description:
-            "Network reconnaissance and service enumeration, traffic and packet analysis, vulnerability assessment, and network protocol analysis",
+            "Network reconnaissance and service enumeration, traffic and packet analysis, vulnerability assessment, and network protocol analysis.",
         },
       ],
     },
-
     {
       category: "Security Operations",
       description:
@@ -91,7 +89,6 @@ export default function Skills() {
         },
       ],
     },
-
     {
       category: "Digital Forensics",
       description:
@@ -111,11 +108,10 @@ export default function Skills() {
           depth: 2,
           icon: MemoryStick,
           description:
-            "Memory acquisition and analysis, process and network investigation, suspicious process identification, and artifact extraction",
+            "Memory acquisition and analysis, process and network investigation, suspicious process identification, and artifact extraction.",
         },
       ],
     },
-
     {
       category: "Security Tooling & Development",
       description:
@@ -124,7 +120,7 @@ export default function Skills() {
         {
           title: "Python",
           level: "Project Experience",
-          depth: 4, 
+          depth: 4,
           icon: Code2,
           description: "Security automation and scripting.",
         },
@@ -146,7 +142,6 @@ export default function Skills() {
         },
       ],
     },
-
     {
       category: "Systems & Networking",
       description:
@@ -158,7 +153,7 @@ export default function Skills() {
           depth: 3,
           icon: TerminalSquare,
           description:
-            "Linux administration, system services, networking, logging, permissions and process management",
+            "Linux administration, system services, networking, logging, permissions, and process management.",
         },
         {
           title: "Windows",
@@ -199,13 +194,25 @@ export default function Skills() {
         <div className="mt-12 space-y-6">
           {skills.map((group, groupIdx) => {
             const color = CATEGORY_COLORS[group.category] ?? "#5bd68a"
+
             return (
               <section
                 key={group.category}
-                className="rounded-xl border border-line bg-bg/10 p-5 sm:p-6"
-                style={{ border: `2px solid ${color}55` }}
+                className="relative isolate overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.035] via-black/20 to-black/10 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:p-6"
+                style={{
+                  borderColor: `${color}30`,
+                }}
               >
-                {/* Main card header */}
+                {/* Subtle category-colored ambient tint */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -z-10"
+                  style={{
+                    background: `radial-gradient(ellipse at top left, ${color}0b, transparent 55%)`,
+                  }}
+                />
+
+                {/* Category header */}
                 <div className="mb-6">
                   <div className="flex items-center gap-3">
                     <span
@@ -213,6 +220,7 @@ export default function Skills() {
                       style={{ backgroundColor: color }}
                       aria-hidden="true"
                     />
+
                     <span className="font-mono text-[10px] text-mute">
                       {String(groupIdx + 1).padStart(2, "0")}
                     </span>
@@ -222,8 +230,10 @@ export default function Skills() {
                     </h3>
                   </div>
 
-                  <p className="mt-3 max-w-3xl font-mono text-xs leading-[1.8] text-mute sm:text-sm">
-                    <span style={{ color: `${color}99` }}>{"// "}</span>
+                  <p className="mt-3 font-mono text-xs leading-[1.8] text-mute sm:text-sm">
+                    <span style={{ color: `${color}99` }}>
+                      {"// "}
+                    </span>
                     {group.description}
                   </p>
                 </div>
@@ -233,31 +243,39 @@ export default function Skills() {
                   {group.items.map((skill) => {
                     const isHandsOn = skill.level === "Hands-on"
                     const Icon: LucideIcon = skill.icon
+
                     return (
                       <article
                         key={skill.title}
-                        className="group relative rounded-lg border border-line bg-black/30 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-black/50"
-                        style={{ ["--accent" as string]: color }}
+                        className="group relative isolate overflow-hidden rounded-xl border border-white/[0.07] bg-gradient-to-br from-white/[0.025] via-black/25 to-black/15 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)]/30 hover:bg-white/[0.025] hover:shadow-[0_8px_24px_-18px_var(--accent)]"
+                        style={{
+                          ["--accent" as string]: color,
+                        }}
                       >
                         {/* Skill header */}
                         <div className="flex items-start justify-between gap-4">
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex min-w-0 items-center gap-2.5">
                             <span
-                              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md transition-colors duration-200"
+                              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-200"
                               style={{
                                 color,
                                 backgroundColor: `${color}1a`,
                                 border: `1px solid ${color}40`,
                               }}
                             >
-                              <Icon size={14} strokeWidth={2} aria-hidden="true" />
+                              <Icon
+                                size={15}
+                                strokeWidth={1.8}
+                                aria-hidden="true"
+                              />
                             </span>
 
-                            <h4 className="font-mono text-sm font-semibold leading-snug text-ink transition-colors duration-200 group-hover:text-[var(--accent)]">
+                            <h4 className="font-mono text-sm font-medium leading-snug text-ink transition-colors duration-200 group-hover:text-[var(--accent)]">
                               {skill.title}
                             </h4>
                           </div>
 
+                          {/* Experience badge */}
                           <span
                             className="shrink-0 rounded-md px-2 py-1 font-mono text-[9px] uppercase tracking-wider"
                             style={
@@ -269,7 +287,7 @@ export default function Skills() {
                                   }
                                 : {
                                     color: "var(--color-mute)",
-                                    backgroundColor: "transparent",
+                                    backgroundColor: "rgba(255,255,255,0.02)",
                                     border: "1px solid var(--color-line)",
                                   }
                             }
@@ -278,26 +296,35 @@ export default function Skills() {
                           </span>
                         </div>
 
-                        {/* Depth indicator — placeholder, tune per skill via the `depth` field above */}
-                        <div className="mt-3 flex items-center gap-1" aria-hidden="true">
+                        {/* Skill depth indicator */}
+                        <div
+                          className="mt-4 flex items-center gap-1"
+                          aria-hidden="true"
+                        >
                           {Array.from({ length: 5 }).map((_, i) => (
                             <span
                               key={i}
-                              className="h-1 w-4 rounded-full"
+                              className="h-1 w-5 rounded-full"
                               style={{
-                                backgroundColor: i < skill.depth ? color : "var(--color-line)",
-                                opacity: i < skill.depth ? 0.9 : 0.5,
+                                backgroundColor:
+                                  i < skill.depth
+                                    ? color
+                                    : "var(--color-line)",
+                                opacity: i < skill.depth ? 0.9 : 0.45,
                               }}
                             />
                           ))}
                         </div>
 
                         {/* Skill description */}
-                        <p className="mt-4 text-xs leading-[1.8] text-mute">{skill.description}</p>
+                        <p className="mt-4 text-xs leading-[1.8] text-mute">
+                          {skill.description}
+                        </p>
 
                         {/* Bottom accent */}
                         <span
-                          className="absolute bottom-0 left-5 h-px w-0 transition-all duration-300 group-hover:w-12"
+                          aria-hidden="true"
+                          className="absolute bottom-0 left-5 h-px w-0 transition-all duration-300 group-hover:w-10"
                           style={{ backgroundColor: color }}
                         />
                       </article>
