@@ -24,17 +24,24 @@ export default function About() {
         "Building full-stack applications and APIs while combining software development with practical security considerations.",
       color: "#e6b450",
     },
-  ]
+  ];
 
   return (
     <section id="about" className="mx-auto max-w-7xl px-2 py-24">
-      {/* Section label */}
-      <SectionLabel index="02" title="about" />
+<div className="mt-10">
+  <div className="mb-4 flex items-center gap-3">
+    <span className="h-px w-8 bg-phos" />
+    <span className="font-mono text-xs uppercase tracking-[0.24em] text-phos">
+      Who I Am
+    </span>
+  </div>
 
-      {/* Heading */}
-      <h2 className="mt-10 text-2xl font-semibold tracking-tight text-phos/70 sm:text-3xl">
-        Background & Expertise
-      </h2>
+  <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+    Background <span className="text-phos">&amp; Expertise</span>
+  </h2>
+</div>
+
+
 
       {/* Main content */}
       <div className="mt-8 flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
@@ -42,8 +49,8 @@ export default function About() {
         <div className="lg:w-[60%]">
           <div className="space-y-6 text-sm leading-[1.9] text-slate-300/80 sm:text-base">
             <p>
-              I'm a cybersecurity practitioner and full-stack developer based
-              in Kenya. I hold a BSc in Software Engineering from Murang’a
+              I'm a cybersecurity practitioner and full-stack developer based in
+              Kenya. I hold a BSc in Software Engineering from Murang’a
               University of Technology, with a strong focus on cybersecurity,
               systems, and software development.
             </p>
@@ -51,18 +58,17 @@ export default function About() {
             <p>
               My current focus is offensive security and security operations,
               with hands-on experience across Active Directory, web
-              applications, networks, and Windows and Linux environments. I
-              work extensively through practical labs, CTFs, security research,
-              and personal projects, while building experience in threat
-              detection, log analysis, endpoint monitoring, and digital
-              forensics.
+              applications, networks, and Windows and Linux environments. I work
+              extensively through practical labs, CTFs, security research, and
+              personal projects, while building experience in threat detection,
+              log analysis, endpoint monitoring, and digital forensics.
             </p>
 
             <p>
               Alongside cybersecurity, I build full-stack applications and
               security tooling using Python, Flask, React, TypeScript, and
-              modern web technologies. Working across both disciplines gives
-              me an understanding of systems from both sides, from how an
+              modern web technologies. Working across both disciplines gives me
+              an understanding of systems from both sides, from how an
               application or environment is designed to how it can be abused,
               monitored, and investigated.
             </p>
@@ -139,15 +145,15 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export function SectionLabel({
   index,
   title,
 }: {
-  index: string
-  title: string
+  index: string;
+  title: string;
 }) {
   return (
     <div className="flex items-center gap-3 font-mono text-xs text-mute">
@@ -155,5 +161,5 @@ export function SectionLabel({
       <span className="h-px flex-1 bg-line" />
       <span className="uppercase tracking-widest">{title}</span>
     </div>
-  )
+  );
 }

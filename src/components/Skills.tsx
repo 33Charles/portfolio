@@ -236,7 +236,7 @@ export default function Skills() {
                     </h3>
                   </div>
 
-                  <p className="mt-3 font-mono text-xs leading-[1.8] text-mute sm:text-sm">
+                  <p className="mt-3 font-mono text-sm leading-[1.8] text-mute ">
                     <span style={{ color: `${color}99` }}>{"// "}</span>
                     {group.description}
                   </p>

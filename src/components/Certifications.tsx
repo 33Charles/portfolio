@@ -104,16 +104,15 @@ const credentials: Credential[] = [
     link: "https://academy.hackthebox.com/achievement/badge/b527c167-f871-11f0-9254-bea50ffe6cb4",
     accent: "#ff6b78",
   },
-{
-  title: "Full-Stack Software Development",
-  issuer: "Teach2Give",
-  type: "Training",
-  description:
-    "Completed a 12-week full-stack development bootcamp covering JavaScript, TypeScript, React, Material UI, Node.js, Prisma, and modern web application development.",
-  link: "https://drive.google.com/file/d/1XMsuQuBDuY_6wnWCoqXDc-eEreRR0Mor/view",
-  accent: "#5ec8e6",
-},
-
+  {
+    title: "Full-Stack Software Development",
+    issuer: "Teach2Give",
+    type: "Training",
+    description:
+      "Completed a 12-week full-stack development bootcamp covering JavaScript, TypeScript, React, Material UI, Node.js, Prisma, and modern web application development.",
+    link: "https://drive.google.com/file/d/1XMsuQuBDuY_6wnWCoqXDc-eEreRR0Mor/view",
+    accent: "#5ec8e6",
+  },
 ];
 
 const filters = ["All", "Certification", "Training", "Badge"] as const;
@@ -212,7 +211,7 @@ export default function Certifications() {
     <section
       id="certifications"
       aria-labelledby="certifications-heading"
-      className="relative overflow-hidden bg-bg px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
+      className="relative overflow-hidden bg-black/25 px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
     >
       <div
         aria-hidden="true"
@@ -386,73 +385,73 @@ export default function Certifications() {
             </p>
           </div>
 
-<div className="grid gap-3 sm:grid-cols-3">
-  {profiles.map((profile) => (
-    <a
-      key={profile.name}
-      href={profile.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white/[0.02] p-4 transition-colors duration-200"
-      style={{ ["--accent" as string]: profile.accent }}
-    >
-      {/* Faded accent wash on hover (sits behind content) */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-        style={{ backgroundColor: `${profile.accent}1A` }} // ~10% alpha
-      />
+          <div className="grid gap-3 sm:grid-cols-3">
+            {profiles.map((profile) => (
+              <a
+                key={profile.name}
+                href={profile.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white/[0.02] p-4 transition-colors duration-200"
+                style={{ ["--accent" as string]: profile.accent }}
+              >
+                {/* Faded accent wash on hover (sits behind content) */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                  style={{ backgroundColor: `${profile.accent}1A` }} // ~10% alpha
+                />
 
-      {/* Accent bar on the left edge */}
-      <span
-        aria-hidden="true"
-        className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full"
-        style={{ backgroundColor: profile.accent }}
-      />
+                {/* Accent bar on the left edge */}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full"
+                  style={{ backgroundColor: profile.accent }}
+                />
 
-      {/* Icon tile */}
-      <div
-        className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
-        style={{
-          color: profile.accent,
-          backgroundColor: `${profile.accent}12`,
-          borderColor: `${profile.accent}30`,
-        }}
-      >
-        <svg
-          role="img"
-          aria-label={`${profile.name} logo`}
-          viewBox={`0 0 ${profile.icon.width} ${profile.icon.height}`}
-          className="h-6 w-6"
-          fill="currentColor"
-        >
-          <path d={profile.icon.path} />
-        </svg>
-      </div>
+                {/* Icon tile */}
+                <div
+                  className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
+                  style={{
+                    color: profile.accent,
+                    backgroundColor: `${profile.accent}12`,
+                    borderColor: `${profile.accent}30`,
+                  }}
+                >
+                  <svg
+                    role="img"
+                    aria-label={`${profile.name} logo`}
+                    viewBox={`0 0 ${profile.icon.width} ${profile.icon.height}`}
+                    className="h-6 w-6"
+                    fill="currentColor"
+                  >
+                    <path d={profile.icon.path} />
+                  </svg>
+                </div>
 
-      {/* Text */}
-      <div className="relative min-w-0 flex-1">
-        <p
-          className="truncate text-sm font-medium leading-tight"
-          style={{ color: profile.accent }}
-        >
-          {profile.name}
-        </p>
-        <p className="mt-1 truncate text-[11px] leading-tight text-mute">
-          {profile.detail}
-        </p>
-      </div>
+                {/* Text */}
+                <div className="relative min-w-0 flex-1">
+                  <p
+                    className="truncate text-sm font-medium leading-tight"
+                    style={{ color: profile.accent }}
+                  >
+                    {profile.name}
+                  </p>
+                  <p className="mt-1 truncate text-xs leading-tight text-mute">
+                    {profile.detail}
+                  </p>
+                </div>
 
-      {/* Arrow */}
-      <span
-        className="relative shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
-        style={{ color: profile.accent }}
-      >
-        <ExternalArrow />
-      </span>
-    </a>
-  ))}
-</div>
+                {/* Arrow */}
+                <span
+                  className="relative shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+                  style={{ color: profile.accent }}
+                >
+                  <ExternalArrow />
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
