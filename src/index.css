@@ -283,3 +283,65 @@
     opacity: 0 !important;
   }
 }
+/* Projects — architecture diagram connector: a small glowing dot travels
+   along each connector, staggered per position, so the whole diagram reads
+   as one continuous pulse moving left to right through the pipeline. */
+.flow-arrow {
+  position: relative;
+  width: 2.25rem;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--color-line);
+}
+
+.flow-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 9999px;
+  background: var(--color-phos);
+  box-shadow: 0 0 6px 1px rgb(91 214 138 / 0.65);
+  opacity: 0;
+  animation: flow-pulse 2.4s linear infinite;
+  animation-delay: var(--flow-delay, 0s);
+}
+
+.flow-arrow__head {
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translateY(-50%) rotate(45deg);
+  border-right: 1px solid var(--color-line);
+  border-top: 1px solid var(--color-line);
+}
+
+@keyframes flow-pulse {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-arrow::after {
+    animation: none;
+    opacity: 0.9;
+    left: 50%;
+  }
+}

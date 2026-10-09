@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { ForensightOverlay } from "./ForensightOverlay";
-import { FiArrowRight } from "react-icons/fi";
 
 type Project = {
   title: string;
@@ -26,6 +25,14 @@ const projects: Project[] = [
       "Hands-on assessment of an Active Directory environment involving enumeration, credential attacks, privilege escalation, and lateral movement.",
     tags: ["BloodHound", "Impacket", "NetExec"],
     link: "#",
+  },
+  {
+    title: "PluseFit",
+    category: "Web Development",
+    description:
+      "A modern, responsive fitness website built with React and TypeScript, featuring a polished interface styled with Tailwind CSS.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    link: "https://pluse-fit.vercel.app/",
   },
 ];
 
@@ -76,34 +83,43 @@ export default function Projects() {
           </div>
 
           {/* Featured Forensight project */}
-          <article className="group relative mt-12 overflow-hidden rounded-xl border border-line bg-black/30">
-            {/* Top accent */}
-            <div className="absolute left-0 top-0 h-px w-24 bg-phos/40 transition-all duration-500 group-hover:w-40 group-hover:bg-phos" />
+          {/* Featured Project — FORENSIGHT */}
+          <article className="relative isolate mt-12 overflow-hidden rounded-2xl border border-white/[0.09] bg-gradient-to-br from-white/[0.04] via-[#0b0e0c]/90 to-[#080a09] shadow-[inset_0_1px_0_rgba(255,255,255,0.035),0_16px_50px_-30px_rgba(0,0,0,0.8)]">
+            {/* Subtle ambient tint */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(91,214,138,0.055),transparent_55%)]"
+            />
 
             <div className="p-6 sm:p-8 lg:p-10">
+              {/* Header */}
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div>
-                  <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-phos/50">
+                  <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-phos/75">
+                    <span className="h-1.5 w-1.5 rounded-full bg-phos/80" />
                     <span>Featured Project</span>
-                    <span className="h-px w-8 bg-phos/20" />
+                    <span className="h-px w-8 bg-phos/25" />
                     <span>01</span>
                   </div>
 
-                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                    FORENSIGHT
+                  <h3 className="mt-4 text-2xl font-bold tracking-[-0.04em] text-ink sm:text-3xl">
+                    FORENSIGHT<span className="text-phos">.</span>
                   </h3>
 
-                  <p className="mt-2 font-mono text-sm text-phos/70 sm:text-base">
+                  <p className="mt-2 font-mono text-xs leading-6 tracking-wide text-phos/75 sm:text-sm">
                     Real-Time Log Analysis & Threat Detection System
                   </p>
                 </div>
 
-                <span className="w-fit rounded-full border border-phos/20 bg-phos/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-phos/60">
+                {/* Category badge */}
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-phos/20 bg-phos/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-phos/90">
+                  <span className="h-1 w-1 rounded-full bg-phos" />
                   Security Tooling
                 </span>
               </div>
 
-              <p className="mt-7 max-w-4xl text-sm leading-[1.9] text-slate-300/80 sm:text-md">
+              {/* Description */}
+              <p className="mt-7 max-w-4xl text-sm leading-[1.9] text-ink/80 sm:text-base">
                 FORENSIGHT is a lightweight Linux-focused security monitoring
                 and threat detection system designed to centralize security
                 events from multiple hosts, analyze activity against
@@ -111,10 +127,10 @@ export default function Projects() {
                 real-time workflow for investigating and resolving alerts.
               </p>
 
-              {/* High-level architecture */}
+              {/* System Architecture */}
               <div className="mt-10">
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[10px] text-phos/40">//</span>
+                  <span className="font-mono text-[10px] text-phos/50">//</span>
 
                   <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
                     System Flow
@@ -123,33 +139,29 @@ export default function Projects() {
                   <span className="h-px flex-1 bg-line" />
                 </div>
 
-                <div className="mt-5 overflow-x-auto rounded-lg border border-line bg-bg/40 p-5">
+                <div className="mt-5 overflow-x-auto rounded-xl border border-white/[0.07] bg-black/30 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
                   <div className="flex min-w-[720px] items-center justify-center gap-2 font-mono text-[10px] sm:text-xs">
                     <ArchitectureNode label="Linux Hosts" />
-                    <Arrow />
+                    <FlowArrow delay={0} />
                     <ArchitectureNode label="rsyslog / auditd" />
-                    <Arrow />
+                    <FlowArrow delay={0.3} />
                     <ArchitectureNode label="Flask" />
-                    <Arrow />
+                    <FlowArrow delay={0.6} />
                     <ArchitectureNode label="Detection" />
-                    <Arrow />
+                    <FlowArrow delay={0.9} />
                     <ArchitectureNode label="SQLite" />
-                    <Arrow />
+                    <FlowArrow delay={1.2} />
                     <ArchitectureNode label="React" />
                   </div>
                 </div>
               </div>
 
-              {/* Quick technical summary */}
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <SummaryItem
-                  label="Collection"
-                  value="rsyslog + auditd"
-                />
-                <SummaryItem
-                  label="Detection"
-                  value="Rule-based analysis"
-                />
+              {/* Technical Summary */}
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                <SummaryItem label="Collection" value="rsyslog + auditd" />
+
+                <SummaryItem label="Detection" value="Rule-based analysis" />
+
                 <SummaryItem
                   label="Interface"
                   value="Real-time React dashboard"
@@ -172,94 +184,143 @@ export default function Projects() {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-line bg-bg/40 px-3 py-1.5 font-mono text-[10px] text-mute transition-colors hover:border-phos/30 hover:text-phos"
+                    className="rounded-md border border-white/[0.07] bg-white/[0.035] px-2.5 py-1.5 font-mono text-[10px] tracking-wide text-mute/90"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-6">
+              {/* Actions */}
+              <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/[0.07] pt-6">
                 <button
                   type="button"
                   onClick={() => setForensightOpen(true)}
-                  className="rounded-md border border-phos-dim bg-phos/10 px-4 py-2.5 font-mono text-xs text-phos transition-colors hover:bg-phos hover:text-bg"
+                  className="inline-flex items-center gap-2 rounded-lg border border-phos/25 bg-phos/[0.08] px-4 py-2.5 font-mono text-xs font-medium text-phos shadow-[inset_0_1px_0_rgba(255,255,255,0.035)]"
                 >
-                  explore project →
+                  Explore project
+                  <span>↗</span>
                 </button>
 
                 <a
                   href="https://github.com/33Charles/forensight"
                   target="_blank"
-                  rel="noreferrer"
-                  className="rounded-md border border-line px-4 py-2.5 font-mono text-xs text-ink transition-colors hover:border-phos-dim hover:text-phos"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/[0.09] bg-white/[0.025] px-4 py-2.5 font-mono text-xs text-ink/80"
                 >
-                  github ↗
+                  GitHub
+                  <span className="text-phos/80">↗</span>
                 </a>
               </div>
             </div>
           </article>
 
-          {/* Other projects */}
-          <div className="mt-16">
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-xs text-phos/40">//</span>
+          {/* Other Projects */}
+          <section className="mt-20">
+            <div className="mb-6 flex items-center justify-between gap-4">
+              <div>
+                <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.2em] text-phos/70">
+                  Selected work
+                </p>
 
-              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
-                Other Projects
-              </h3>
+                <h3 className="text-xl font-semibold tracking-tight text-ink">
+                  Other Projects<span className="text-phos">.</span>
+                </h3>
+              </div>
 
-              <span className="h-px flex-1 bg-line" />
+              <span className="font-mono text-[10px] text-mute/50">
+                {String(projects.length).padStart(2, "0")} projects
+              </span>
             </div>
 
-            <div className="mt-6 grid gap-5 md:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {projects.map((project, index) => (
                 <article
                   key={project.title}
-                  className="group relative overflow-hidden rounded-xl border border-line bg-black/20 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-phos/30 hover:bg-black/30"
+                  className="group relative isolate overflow-hidden rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.035] via-black/20 to-black/10 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-all duration-300 hover:-translate-y-0.5 hover:border-phos/30 hover:bg-white/[0.025] hover:shadow-[0_0_20px_-12px_rgba(91,214,138,0.35)]"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] text-phos/30">
-                      0{index + 2}
+                  {/* Subtle glass tint */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(91,214,138,0.045),transparent_60%)]"
+                  />
+
+                  {/* Hover glow */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(91,214,138,0.09),transparent_65%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+
+                  {/* Top row */}
+                  <div className="relative flex items-center justify-between gap-3">
+                    <span className="font-mono text-[10px] text-phos/70">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
 
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-mute/60">
+                    {/* More visible category tag */}
+                    <span className="inline-flex items-center gap-2 rounded-full border border-phos/20 bg-phos/[0.08] px-3 py-1.5 font-mono text-[9px] font-medium uppercase tracking-wider text-phos/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-sm transition-colors duration-300 group-hover:border-phos/35 group-hover:bg-phos/[0.12]">
+                      <span className="h-1 w-1 rounded-full bg-phos shadow-[0_0_5px_rgba(91,214,138,0.5)]" />
                       {project.category}
                     </span>
                   </div>
 
-                  <h3 className="mt-5 font-mono text-sm font-semibold text-ink transition-colors group-hover:text-phos">
+                  {/* Project content */}
+                  <h4 className="relative mt-5 text-base font-semibold leading-snug tracking-tight text-ink transition-colors duration-300 group-hover:text-white">
                     {project.title}
-                  </h3>
+                  </h4>
 
-                  <p className="mt-3 text-xs leading-[1.8] text-mute">
+                  <p className="relative mt-2 text-xs leading-6 text-mute/80">
                     {project.description}
                   </p>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag:any) => (
+                  {/* Technology tags */}
+                  <div className="relative mt-4 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-line px-2.5 py-1 font-mono text-[9px] text-mute"
+                        className="rounded-md border border-white/[0.06] bg-white/[0.035] px-2 py-1 font-mono text-[9px] text-mute/90 backdrop-blur-sm transition-all duration-300 group-hover:border-white/[0.1] group-hover:bg-white/[0.05]"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <a
-                    href={project.link}
-                    className="mt-6 inline-flex font-mono text-[10px] uppercase tracking-wider text-phos/60 transition-colors hover:text-phos"
-                  >
-                    explore project →
-                  </a>
+                  {/* Footer */}
+                  <div className="relative mt-5 flex items-center justify-between border-t border-white/[0.07] pt-3 transition-colors duration-300 group-hover:border-phos/15">
+                    <span className="text-[9px] text-mute/45">
+                      Project {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                  <span className="absolute bottom-0 left-6 h-px w-8 bg-phos/20 transition-all duration-300 group-hover:w-14 group-hover:bg-phos" />
+                    {/* More visible Explore button */}
+                    <a
+                      href={project.link}
+                      target={
+                        project.link.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        project.link.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      aria-label={`Explore ${project.title}`}
+                      className="inline-flex items-center gap-2 rounded-lg border border-phos/25 bg-phos/[0.07] px-3 py-2 font-mono text-[10px] font-medium text-phos transition-all duration-300 hover:border-phos/50 hover:bg-phos/[0.14] hover:shadow-[0_0_14px_-6px_rgba(91,214,138,0.4)]"
+                    >
+                      Explore project
+                      <span className="text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                        ↗
+                      </span>
+                    </a>
+                  </div>
+
+                  {/* Bottom accent */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-5 bottom-0 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-phos/60 to-transparent transition-transform duration-500 group-hover:scale-x-100"
+                  />
                 </article>
               ))}
             </div>
-          </div>
+          </section>
         </div>
       </section>
 
@@ -270,13 +331,7 @@ export default function Projects() {
   );
 }
 
-function SummaryItem({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function SummaryItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border border-line bg-bg/30 p-4">
       <p className="font-mono text-[9px] uppercase tracking-widest text-phos/40">
@@ -295,12 +350,18 @@ function ArchitectureNode({ label }: { label: string }) {
     </div>
   );
 }
-function Arrow() {
+
+/** A connector between architecture nodes: a small glowing dot travels along
+ * it, `delay` (seconds) staggers it against its neighbors so the pulse reads
+ * as one continuous flow moving left to right through the pipeline. */
+function FlowArrow({ delay = 0 }: { delay?: number }) {
   return (
-    <FiArrowRight
-      className="shrink-0 text-phos/40"
-      size={20}
+    <div
+      className="flow-arrow"
+      style={{ ["--flow-delay" as string]: `${delay}s` }}
       aria-hidden="true"
-    />
+    >
+      <span className="flow-arrow__head" />
+    </div>
   );
 }
