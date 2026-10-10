@@ -2,5 +2,11 @@
   "installCommand": "npm install && npm --prefix notes-vault install",
   "buildCommand": "bash build-site.sh",
   "outputDirectory": "dist",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/labs-and-notes/+/",
+      "destination": "/labs-and-notes/+.html"
+    }
+  ]
 }
