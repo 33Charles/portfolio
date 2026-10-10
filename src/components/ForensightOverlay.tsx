@@ -107,7 +107,7 @@ function handleClose() {
     <div
       ref={dialogRef}
       tabIndex={-1}
-      className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm"
+      className="fixed inset-0 z-100 bg-black/90 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-labelledby="forensight-title"
