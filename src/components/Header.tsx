@@ -7,6 +7,7 @@ const NAV = [
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
   { href: site.notesPath, label: 'Labs & Notes', external: true },
+  { href:'#certifications', label:'certifications'},
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -73,7 +74,7 @@ export default function Header() {
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
 
         <a
           href="#top"

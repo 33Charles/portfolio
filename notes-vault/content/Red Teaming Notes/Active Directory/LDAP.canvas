@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"bceb68b0a50fa6f9","type":"text","text":"Active Directory","x":65,"y":40,"width":250,"height":70},
+		{"id":"d3770ed3b5cd3e66","type":"text","text":"API Gateway","x":20,"y":-210,"width":250,"height":60},
+		{"id":"79df24cda800eb5b","type":"text","text":"CLIENT APPLICATION","x":-460,"y":-180,"width":240,"height":60}
+	],
+	"edges":[
+		{"id":"0ead51af2150954d","fromNode":"79df24cda800eb5b","fromSide":"top","toNode":"d3770ed3b5cd3e66","toSide":"left","fromEnd":"arrow","label":"Request and receive user information"},
+		{"id":"6fefab773ada7e6a","fromNode":"d3770ed3b5cd3e66","fromSide":"bottom","toNode":"bceb68b0a50fa6f9","toSide":"top","fromEnd":"arrow","label":"LDAP queries"}
+	]
+}

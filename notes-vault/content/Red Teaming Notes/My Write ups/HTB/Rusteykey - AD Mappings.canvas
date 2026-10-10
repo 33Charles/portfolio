@@ -1,0 +1,40 @@
+{
+	"nodes":[
+		{"id":"6bfb55245d0dd868","type":"text","text":"mm.turner","x":-440,"y":-220,"width":160,"height":50},
+		{"id":"673b16ef83536e05","type":"text","text":"delegation managers group","x":-120,"y":-220,"width":250,"height":60},
+		{"id":"c132047c228b2116","type":"text","text":"dc.rustykey.htb","x":260,"y":-160,"width":250,"height":50},
+		{"id":"8f205702c51da344","type":"text","text":"dd.ali","x":-480,"y":40,"width":120,"height":50},
+		{"id":"a876810b227e4ff3","type":"text","text":"gg.anderson","x":200,"y":120,"width":250,"height":60,"color":"5"},
+		{"id":"01845068580927b8","type":"text","text":"bb.morgan","x":-780,"y":350,"width":160,"height":50,"color":"5"},
+		{"id":"d8a77d993632d52a","type":"text","text":"helpdesk group","x":55,"y":760,"width":250,"height":60,"color":"1"},
+		{"id":"3a95edf65cf9c706","type":"text","text":"protected users","x":-420,"y":410,"width":200,"height":50},
+		{"id":"a7823d17de23cc91","type":"text","text":"remote management users","x":-170,"y":290,"width":250,"height":60,"color":"5"},
+		{"id":"f8f0aa000fcede17","type":"text","text":"bb.morgan\ngg.anderson\ndd.ali\nee.reed","x":-730,"y":580,"width":250,"height":120,"color":"1"},
+		{"id":"584066828e6e73f1","type":"text","text":"nn.marcos","x":180,"y":350,"width":145,"height":60,"color":"1"},
+		{"id":"e744461012cd7013","type":"text","text":"support group","x":-295,"y":1070,"width":250,"height":60},
+		{"id":"4b2f491a68567e0d","type":"text","text":"ee.reed","x":-700,"y":940,"width":250,"height":60,"color":"5"},
+		{"id":"860b06035cd22486","type":"text","text":"protected objects group","x":55,"y":522,"width":143,"height":58,"color":"2"},
+		{"id":"d447bfef17624485","type":"text","text":"IT-Computer3","x":127,"y":1130,"width":250,"height":60,"color":"1"},
+		{"id":"0f1dba8f277afc24","type":"text","text":"finance group","x":-130,"y":40,"width":180,"height":50},
+		{"id":"5d85ad0269629721","type":"text","text":"it group","x":-260,"y":125,"width":140,"height":55}
+	],
+	"edges":[
+		{"id":"4fa0873a7400379b","fromNode":"6bfb55245d0dd868","fromSide":"right","toNode":"673b16ef83536e05","toSide":"left","label":"member of"},
+		{"id":"843269e7f07d0c08","fromNode":"673b16ef83536e05","fromSide":"right","toNode":"c132047c228b2116","toSide":"top","label":"addAllowedToAcl"},
+		{"id":"69b09e6f8658bca8","fromNode":"8f205702c51da344","fromSide":"right","toNode":"0f1dba8f277afc24","toSide":"left","label":"member of"},
+		{"id":"f590c742a49e0f3f","fromNode":"01845068580927b8","fromSide":"right","toNode":"a7823d17de23cc91","toSide":"left","color":"5","label":"member of"},
+		{"id":"2380652076eed776","fromNode":"01845068580927b8","fromSide":"bottom","toNode":"3a95edf65cf9c706","toSide":"top","label":"member of"},
+		{"id":"d9ddf95d6f83eaca","fromNode":"01845068580927b8","fromSide":"top","toNode":"5d85ad0269629721","toSide":"left","label":"member of"},
+		{"id":"fad0d64dfb5c515a","fromNode":"a876810b227e4ff3","fromSide":"left","toNode":"5d85ad0269629721","toSide":"right","label":"member of"},
+		{"id":"a1006e7c00c7a728","fromNode":"01845068580927b8","fromSide":"left","toNode":"860b06035cd22486","toSide":"bottom","label":"member of"},
+		{"id":"da40b1c9f307015e","fromNode":"a876810b227e4ff3","fromSide":"bottom","toNode":"a7823d17de23cc91","toSide":"top","color":"5","label":"member of"},
+		{"id":"7a97b8184114d4c2","fromNode":"4b2f491a68567e0d","fromSide":"right","toNode":"e744461012cd7013","toSide":"left","label":"member of"},
+		{"id":"19d58256dbe324e3","fromNode":"4b2f491a68567e0d","fromSide":"top","toNode":"a7823d17de23cc91","toSide":"bottom","color":"5","label":"member of"},
+		{"id":"21589f4793e1fef4","fromNode":"860b06035cd22486","fromSide":"top","toNode":"3a95edf65cf9c706","toSide":"bottom","label":"member of"},
+		{"id":"9a763c3c9fe32697","fromNode":"584066828e6e73f1","fromSide":"right","toNode":"d8a77d993632d52a","toSide":"top","color":"1","label":"member of"},
+		{"id":"16f354a8cc931155","fromNode":"d8a77d993632d52a","fromSide":"left","toNode":"860b06035cd22486","toSide":"bottom","color":"2","label":"add member"},
+		{"id":"e92c6c91390b1431","fromNode":"d8a77d993632d52a","fromSide":"left","toNode":"f8f0aa000fcede17","toSide":"right","color":"1","label":"forceChangePassword"},
+		{"id":"87ba6388b1736b5e","fromNode":"d8a77d993632d52a","fromSide":"right","toNode":"8f205702c51da344","toSide":"left","label":"genericWrite"},
+		{"id":"7aef71302d2ae583","fromNode":"d447bfef17624485","fromSide":"top","toNode":"d8a77d993632d52a","toSide":"bottom","color":"1","label":"addself"}
+	]
+}

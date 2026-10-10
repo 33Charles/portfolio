@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"bf6cd56d07e168f0","x":-420,"y":-240,"width":250,"height":60,"type":"text","text":"client"},
+		{"id":"bbc5d2a766b5f436","x":120,"y":-240,"width":250,"height":60,"type":"text","text":"KDC"},
+		{"id":"f617df0841151896","x":120,"y":-160,"width":250,"height":60,"type":"text","text":"KDC"},
+		{"id":"cdf645659f41b0a3","x":-420,"y":-160,"width":250,"height":60,"type":"text","text":"client"},
+		{"id":"97041538c23b42bc","x":180,"y":-80,"width":250,"height":60,"type":"text","text":"KDC"},
+		{"id":"fbb1bd49b81a9634","x":-460,"y":-80,"width":250,"height":60,"type":"text","text":"client"},
+		{"id":"95b3b011a759d5d4","x":-420,"y":20,"width":250,"height":60,"type":"text","text":"client"},
+		{"id":"b70d1cf85a0344c2","x":120,"y":20,"width":250,"height":60,"type":"text","text":"KDC"},
+		{"id":"ed6077a4942794c4","x":-295,"y":320,"width":250,"height":60,"type":"text","text":"DATABASE SERVICE "}
+	],
+	"edges":[
+		{"id":"5a0a7d189f4f16cb","fromNode":"bf6cd56d07e168f0","fromSide":"right","toNode":"bbc5d2a766b5f436","toSide":"left","label":"AS-REQ (request TGT)"},
+		{"id":"84d1a299f64cd458","fromNode":"f617df0841151896","fromSide":"left","toNode":"cdf645659f41b0a3","toSide":"right","label":"AS-REP (receive TGT)"},
+		{"id":"100848657374d1ae","fromNode":"fbb1bd49b81a9634","fromSide":"right","toNode":"97041538c23b42bc","toSide":"left","label":"TGT-REQ (present TGT & request TGS)"},
+		{"id":"b1886bc1a03dc2dc","fromNode":"b70d1cf85a0344c2","fromSide":"left","toNode":"95b3b011a759d5d4","toSide":"right","label":"TGS-REP (receive TGS)"},
+		{"id":"e575662055d6be33","fromNode":"95b3b011a759d5d4","fromSide":"bottom","toNode":"ed6077a4942794c4","toSide":"top","label":"AP-REQ  (present TGS to access the service)"}
+	]
+}
