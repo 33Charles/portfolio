@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: null
   locale: en-US
-  baseUrl: d4sein-lemon.vercel.app/labs-and-notes
+  baseUrl: d4sein-portfolio.vercel.app/labs-and-notes
   ignorePatterns:
     - private
     - templates
