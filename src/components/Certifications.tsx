@@ -421,7 +421,7 @@ export default function Certifications() {
                   <svg
                     role="img"
                     aria-label={`${profile.name} logo`}
-                    viewBox={`0 0 ${profile.icon.width} ${profile.icon.height}`}
+                    viewBox={`0 0 24 24`}
                     className="h-6 w-6"
                     fill="currentColor"
                   >

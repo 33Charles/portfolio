@@ -10,62 +10,77 @@ export function ForensightOverlay({
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    const previousFocus = document.activeElement as HTMLElement | null;
+useEffect(() => {
+  const previousFocus = document.activeElement as HTMLElement | null;
 
-    document.body.style.overflow = "hidden";
-    closeButtonRef.current?.focus();
+  // Lock scroll
+  document.body.style.overflow = "hidden";
+  document.body.style.overflowX = "hidden";
+  document.body.style.overflowY = "hidden";
 
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        onClose();
-        return;
-      }
+  closeButtonRef.current?.focus();
 
-      if (event.key !== "Tab" || !dialogRef.current) return;
-
-      const focusable =
-        dialogRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input:not([disabled]), ' +
-            'select:not([disabled]), textarea:not([disabled]), ' +
-            '[tabindex]:not([tabindex="-1"])'
-        );
-
-      if (!focusable.length) {
-        event.preventDefault();
-        dialogRef.current.focus();
-        return;
-      }
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (
-        event.shiftKey &&
-        (document.activeElement === first ||
-          !dialogRef.current.contains(document.activeElement))
-      ) {
-        event.preventDefault();
-        last.focus();
-      } else if (
-        !event.shiftKey &&
-        (document.activeElement === last ||
-          !dialogRef.current.contains(document.activeElement))
-      ) {
-        event.preventDefault();
-        first.focus();
-      }
+  function handleKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape") {
+      handleClose();
+      return;
     }
 
-    document.addEventListener("keydown", handleKeyDown);
+    if (event.key !== "Tab" || !dialogRef.current) return;
 
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-      previousFocus?.focus();
-    };
-  }, [onClose]);
+    const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), ' +
+        'select:not([disabled]), textarea:not([disabled]), ' +
+        '[tabindex]:not([tabindex="-1"])'
+    );
+
+    if (!focusable.length) {
+      event.preventDefault();
+      dialogRef.current.focus();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (
+      event.shiftKey &&
+      (document.activeElement === first ||
+        !dialogRef.current.contains(document.activeElement))
+    ) {
+      event.preventDefault();
+      last.focus();
+    } else if (
+      !event.shiftKey &&
+      (document.activeElement === last ||
+        !dialogRef.current.contains(document.activeElement))
+    ) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  document.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    document.removeEventListener("keydown", handleKeyDown);
+    if (previousFocus?.isConnected) {
+      previousFocus.focus();
+    }
+  };
+}, [onClose]);
+
+function handleClose() {
+  document.body.style.overflow = "";
+  document.body.style.overflowX = "";
+  document.body.style.overflowY = "";
+  document.documentElement.style.overflow = "";
+  document.documentElement.style.overflowX = "";
+  document.documentElement.style.overflowY = "";
+
+  onClose();
+  window.location.reload();
+}
 
   const technologies = [
     "Python",
@@ -109,10 +124,10 @@ export function ForensightOverlay({
       aria-modal="true"
       aria-labelledby="forensight-title"
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) {
-          onClose();
-        }
-      }}
+  if (event.target === event.currentTarget) {
+    handleClose();
+  }
+}}
     >
       <div className="h-full overflow-y-auto overscroll-contain">
         {/* Sticky header */}
@@ -127,7 +142,7 @@ export function ForensightOverlay({
             <button
               ref={closeButtonRef}
               type="button"
-              onClick={onClose}
+              onClick={handleClose}
               aria-label="Close Forensight project"
               className="group flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-mute transition-colors hover:text-phos focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-phos"
             >
@@ -190,7 +205,7 @@ export function ForensightOverlay({
 
               <button
                 type="button"
-                onClick={onClose}
+                onClick={handleClose}
                 className="rounded-md border border-line px-4 py-2.5 font-mono text-xs text-mute transition-colors hover:border-phos/30 hover:text-phos focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-phos"
               >
                 back to projects
