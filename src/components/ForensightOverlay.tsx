@@ -118,7 +118,7 @@ function handleClose() {
 }}
     >
       <div className="h-full overflow-y-auto overscroll-contain">
-        {/* Sticky header */}
+
         <header className="sticky top-0 z-20 border-b border-line bg-black/90 backdrop-blur-md">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-widest">
