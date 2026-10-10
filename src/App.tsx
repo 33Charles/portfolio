@@ -8,6 +8,7 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Certifications from './components/Certifications'
+import { Analytics } from '@vercel/analytics/react';
 
 const SKIP_KEY = 'boot-seen'
 
@@ -33,6 +34,7 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+        <Analytics />
       </div>
     </>
   )
