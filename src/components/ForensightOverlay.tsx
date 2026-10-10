@@ -94,18 +94,6 @@ function handleClose() {
     "MITRE ATT&CK",
   ];
 
-  const results = [
-    "Multi-host event collection",
-    "Centralized log processing",
-    "Rule-based threat detection",
-    "Host auditing with auditd",
-    "Network security event monitoring",
-    "MITRE ATT&CK context",
-    "Alert investigation workflow",
-    "Role-based dashboard access",
-    "CSV event export",
-  ];
-
   const securityFeatures = [
     "JWT-based authentication",
     "Role-based access control",
