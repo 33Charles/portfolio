@@ -5,8 +5,8 @@
   "trailingSlash": true,
   "rewrites": [
     {
-      "source": "/labs-and-notes/+/",
-      "destination": "/labs-and-notes/+.html"
+      "source": "/labs-and-notes/*",
+      "destination": "/labs-and-notes/*.html"
     }
   ]
 }
