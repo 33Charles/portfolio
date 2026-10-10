@@ -1,5 +1,6 @@
 {
   "installCommand": "npm install && npm --prefix notes-vault install",
   "buildCommand": "bash build-site.sh",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "trailingSlash": true
 }
