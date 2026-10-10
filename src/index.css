@@ -46,7 +46,6 @@
 /* Intro terminal: phosphor glow, scanlines and a vignette. Only used by BootSequence. */
 .term {
   font-family: var(--font-mono);
-  text-shadow: 0 0 8px rgb(91 214 138 / 0.28);
 }
 
 .term::before,

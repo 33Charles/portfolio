@@ -27,7 +27,6 @@ const TONE_CLASS: Record<Tone, string> = {
 }
 
 // A short, plausible Active Directory attack chain (ESC1 -> Domain Admin).
-// Edit freely: each step is either a typed command, an output line, or a progress bar.
 const SCRIPT: Step[] = [
   {
     kind: 'out',
