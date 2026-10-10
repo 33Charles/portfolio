@@ -3,10 +3,5 @@
   "buildCommand": "bash build-site.sh",
   "outputDirectory": "dist",
   "trailingSlash": true,
-  "rewrites": [
-    {
-      "source": "/labs-and-notes/*",
-      "destination": "/labs-and-notes/*.html"
-    }
-  ]
+  "cleanUrls": true
 }
