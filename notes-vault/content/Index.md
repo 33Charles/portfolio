@@ -1,8 +1,3 @@
----
-title: Index
-description: Cybersecurity Knowledge Base — offensive and defensive security notes, research, and lab write-ups by D4SEIN
----
-
 # Cybersecurity Knowledge Base
 
 This website is a collection of my personal notes, research, and practical labs in cybersecurity. It documents the concepts, techniques, and tools I study while developing skills in both offensive and defensive security. Many entries originate from hands-on labs, CTF challenges, and independent research.
