@@ -1,3 +1,8 @@
+---
+created: 2026-10-10
+modified: 2026-10-10
+---
+
 # Cybersecurity Knowledge Base
 
 This website is a collection of my personal notes, research, and practical labs in cybersecurity. It documents the concepts, techniques, and tools I study while developing skills in both offensive and defensive security. Many entries originate from hands-on labs, CTF challenges, and independent research.

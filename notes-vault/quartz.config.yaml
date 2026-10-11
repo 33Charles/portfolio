@@ -210,7 +210,18 @@ plugins:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: false
+    enabled: true
+    options:
+      title: "Recently Added"
+      limit: 5
+      linkToMore: false
+      showTags: false
+      hideFolderPages: true
+      hideTagPages: true
+    layout:
+      position: right
+      priority: 35
+      condition: is-index
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
@@ -226,19 +237,16 @@ plugins:
   - source: "@quartz-community/note-properties"
     enabled: true
     options:
-      includeAll: false
-      includedProperties:
-        - description
-        - tags
-        - aliases
+      includeAll: true
+      includedProperties: []
       excludedProperties: []
       hidePropertiesView: false
       delimiters: ---
       language: yaml
     order: 5
     layout:
-      position: beforeBody
-      priority: 15
+      position: right
+      priority: 40
       display: all
   - source: "@quartz-community/unlisted-pages"
     enabled: true

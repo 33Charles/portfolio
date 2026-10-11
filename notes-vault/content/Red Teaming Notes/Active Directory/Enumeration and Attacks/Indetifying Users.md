@@ -1,3 +1,8 @@
+---
+created: 2025-11-05
+modified: 2025-11-05
+---
+
 After running nmap scan to identify the domain names and the domain controller and possibly the services running in the host and their version , we will need to gain a foothold in the target.
 Sometimes the client will provide us will the initial credentials that we will use to start our AD enumeration with but at times we are just given  *"All the best"*, in this case will need to find a way to establish a foothold in the domain by either obtaining clear text credentials or an NTLM password hash for a user, a SYSTEM shell on a domain-joined host, or a shell in the context of a domain user account.
 Obtaining valid user with credentials is critical in the early stages of an internal penetration testing because is opens many opportunities to perform valid further enumeration and even attacks.

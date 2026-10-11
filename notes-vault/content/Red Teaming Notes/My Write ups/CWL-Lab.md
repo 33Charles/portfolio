@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 Honestly i did not want to write a write up for this lab.. bu half way down i think i'm supposed to write one..
 
 External network

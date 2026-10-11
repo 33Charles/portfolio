@@ -1,3 +1,8 @@
+---
+created: 2026-09-22
+modified: 2026-09-22
+---
+
 This is a HTB AD focused machine with a difficulty of medium.
 
 We are provided the initial credentials. 

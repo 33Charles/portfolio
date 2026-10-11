@@ -1,5 +1,7 @@
 ---
 title: Red Teaming Notes
+created: 2026-03-13
+modified: 2026-03-13
 ---
 
 # Red Teaming Notes

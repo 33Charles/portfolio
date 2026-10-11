@@ -1,3 +1,8 @@
+---
+created: 2026-10-04
+modified: 2026-10-04
+---
+
 ![[Pasted_image_20250928090546.png]]
 
 ## Recon

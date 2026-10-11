@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 ## Information disclosure on debug page
 
 Checking at `/sitemap.xml` and `/robots.txt` i didnt find the path to the debug page.

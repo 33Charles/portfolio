@@ -1,3 +1,8 @@
+---
+created: 2026-03-19
+modified: 2026-03-19
+---
+
 https://tryhackme.com/room/operationendgame
 
 ## Recon

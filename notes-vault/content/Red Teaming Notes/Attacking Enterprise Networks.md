@@ -1,3 +1,8 @@
+---
+created: 2026-10-10
+modified: 2026-10-10
+---
+
 
 We are given a scenario and the scope 
 

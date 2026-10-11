@@ -1,3 +1,8 @@
+---
+created: 2025-10-31
+modified: 2025-10-31
+---
+
 ## Introduction to Kerberos
 
 **`Kerberos`** is a network authentication protocol widely used in environments like `Active Directory (AD)` to securely authenticate users and services. It operates on a ticket-based system: users obtain a `Ticket-Granting Ticket (TGT`) from the `Key Distribution Center` (`KDC`, typically the domain controller) after initial authentication. This `TGT` is then used to request `Ticket-Granting Service (TGS)` tickets for specific services, enabling access without repeatedly sending credentials over the network.

@@ -1,3 +1,8 @@
+---
+created: 2025-10-07
+modified: 2025-10-07
+---
+
 ```
 Beneath the tempest's roar, a quiet grace,  
 Mayhem's beauty in a h﻿idden place.  

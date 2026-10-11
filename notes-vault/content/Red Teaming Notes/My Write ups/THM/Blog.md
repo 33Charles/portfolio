@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 This is a challenge in THM tailor to test your wordpress enumeration skill.
 challnge description:
 

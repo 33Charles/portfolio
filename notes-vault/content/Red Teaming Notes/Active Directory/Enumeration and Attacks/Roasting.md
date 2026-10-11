@@ -1,3 +1,8 @@
+---
+created: 2025-11-12
+modified: 2025-11-12
+---
+
 #Time-Roasting
 #Kerberoasting
 #AS_REP-Roasting

@@ -1,3 +1,8 @@
+---
+created: 2025-10-07
+modified: 2025-10-07
+---
+
 
 This well-renowned concept is being applied in cybersecurity solutions to improve the effectiveness of Cyber threat intelligence **(CTI)**, threat hunting and incident response.
 

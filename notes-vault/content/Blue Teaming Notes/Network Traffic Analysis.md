@@ -1,3 +1,8 @@
+---
+created: 2026-01-05
+modified: 2026-01-05
+---
+
 **NTA** can be described as the act of examining network traffic to characterize common ports and protocols utilized, establish a baseline for our environment , monitor and respond to threats, and ensure the greatest possible insight in our organization's network.
 
 ### NTA workflow 

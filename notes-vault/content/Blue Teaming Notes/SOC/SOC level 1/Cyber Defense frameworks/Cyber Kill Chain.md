@@ -1,3 +1,8 @@
+---
+created: 2025-10-07
+modified: 2025-10-07
+---
+
 The **Cyber Kill Chain** is a framework developed by **Lockheed Martin** to describe the stages of a cyberattack from an attacker’s initial planning to achieving their objective. It helps defenders understand how attacks unfold and identify opportunities to detect, disrupt, or stop an adversary at each stage. The model consists of **seven stages**, each representing a critical phase in the attacker’s operation. By analyzing and defending against each phase, blue teams can build layered defenses and respond more effectively to intrusions.
 
 ### Reconnaissance

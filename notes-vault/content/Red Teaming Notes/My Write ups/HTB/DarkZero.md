@@ -1,3 +1,8 @@
+---
+created: 2026-10-04
+modified: 2026-10-04
+---
+
 ![[Pasted_image_20251005075358.png]]
 
 We are given initial credentials..

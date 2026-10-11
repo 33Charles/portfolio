@@ -1,3 +1,8 @@
+---
+created: 2025-09-04
+modified: 2025-09-04
+---
+
 #intoduction
 [[Active Directory Challenges]]
 

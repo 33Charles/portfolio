@@ -1,3 +1,8 @@
+---
+created: 2025-11-10
+modified: 2025-11-10
+---
+
 ## Protected users Group
 
 In Active Directory (AD), the concept of "**protected objects**" is managed through specific security mechanisms. The **`AdminSDHolder`** object, located in the System container of every domain, serves as a template for the security descriptors applied to protected accounts and groups. This object holds the Access Control List (ACL) that is propagated to members of protected groups by the `SD Propagator process`, which runs on the `PDC emulator` every hour by default. The purpose of this process is to ensure that protected objects maintain their specific, restrictive permissions, which remain even if the objects are moved within AD.

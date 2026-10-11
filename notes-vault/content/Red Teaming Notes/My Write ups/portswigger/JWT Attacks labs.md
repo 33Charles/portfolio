@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 ## Accepting arbitrary signatures
 
 ![[Pasted_image_20250905104601.png]]

@@ -1,3 +1,8 @@
+---
+created: 2025-10-30
+modified: 2025-10-30
+---
+
 ## COM
 https://www.synacktiv.com/publications/dissecting-dcom-partie-1
 The **Component Object Model (COM)** is Microsoft’s architectural framework that defines a standard way for software components to interact, regardless of the programming language they were written in or when they were developed. It provides a binary-level contract through interfaces, identified by globally unique identifiers (GUIDs), which allow applications to create and use reusable components without needing to know their internal implementation. COM objects can be implemented as in-process DLLs, out-of-process executables, or even remotely via DCOM, and are registered in the Windows Registry so the system knows how to locate and instantiate them.

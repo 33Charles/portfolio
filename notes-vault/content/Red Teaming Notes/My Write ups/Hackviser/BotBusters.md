@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 Ooops I already did the lab but i will just write the attack path i followed but there will be no screenshot and command ouputs.
 
 First we start with a nmap scan which reveals 3 ports, 22, 80 and 6379 for redis.

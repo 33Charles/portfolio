@@ -1,3 +1,8 @@
+---
+created: 2026-09-22
+modified: 2026-09-22
+---
+
 Sometimes you run a command and you get this error  `KRB_AP_ERR_SKEW (CLOCK SKEW TOO GREAT)` and if you were keen enough in your nmap output you had something like this.
 
 ```bash

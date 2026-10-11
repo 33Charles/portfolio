@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 #xslt
 
 ![[Pasted_image_20251026214019.png]]

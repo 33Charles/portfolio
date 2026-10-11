@@ -135,11 +135,12 @@ code {
 
 .explorer,
 .toc,
-.backlinks {
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  padding: 0.9rem 1rem;
-}
+.backlinks,
+.recent-notes {
+   border: 1px solid var(--border-color);
+   border-radius: var(--radius);
+   padding: 0.9rem 1rem;
+ }
 
 .explorer {
   font-family: var(--codeFont);
@@ -158,6 +159,42 @@ code {
   border-left: 2px solid var(--tertiary);
   padding-left: 0.5rem;
   margin-left: -0.5rem;
+}
+
+
+// Long note/folder titles wrap to a second line by default, breaking the
+// tree's vertical rhythm — truncate with an ellipsis instead. Applies to both
+// plain file links and folder title spans/buttons.
+.explorer-content ul li > a,
+.explorer .folder-container div > a,
+.explorer .folder-container div > button span {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.explorer .folder-container,
+.explorer .folder-container > div,
+.explorer .folder-container div > button {
+  min-width: 0;
+}
+
+.explorer .folder-button {
+  display: flex;
+  align-items: center;
+  line-height: 2;
+}
+
+.explorer .folder-button > svg {
+  flex-shrink: 0;
+  align-self: center;
+  vertical-align: middle;
+}
+
+.explorer .folder-button > span {
+  min-width: 0;
+  line-height: 2;
 }
 
 .search-button {
@@ -232,6 +269,51 @@ code {
   font-family: var(--codeFont);
   font-size: 0.7rem;
   color: var(--gray);
+}
+
+// Recent Notes sidebar panel — reuses the folder/tag listing's `.section`
+// markup, but as a compact list of rows inside one bordered card (matching
+// .toc/.backlinks) rather than a stack of individually-bordered, hover-lift
+// cards. Header gets the same small tracked-out mono label as TOC/Backlinks.
+.recent-notes > h2,
+.recent-notes > h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--codeFont);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: color-mix(in srgb, var(--tertiary) 55%, transparent);
+}
+.recent-notes > ul.recent-ul {
+  margin: 0;
+  padding: 0;
+}
+.recent-notes > ul.recent-ul > li {
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.recent-notes > ul.recent-ul > li:last-child {
+  border-bottom: none;
+}
+.recent-notes .section {
+  border: none;
+  border-radius: 0;
+  padding: 0.55rem 0;
+  margin: 0;
+  transition: none;
+}
+.recent-notes .section:hover {
+  transform: none;
+  border-color: transparent;
+  background: transparent;
+}
+.recent-notes .section .desc h3 {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.recent-notes .section .meta {
+  margin: 0.15rem 0 0;
 }
 
 ::-webkit-scrollbar {

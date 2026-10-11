@@ -1,3 +1,8 @@
+---
+created: 2026-01-06
+modified: 2026-01-06
+---
+
  Windows registry is a hierarchical database used to store information that is necessary to configure the system for one or more users, applications and hardware devices. 
 
 The Registry contains information that Windows continually references during operation, such as profiles for each user, the applications installed on the computer and the types of documents that each can create, property sheet settings for folders and application icons, what hardware exists on the system, and the ports that are being used.

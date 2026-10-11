@@ -1,3 +1,8 @@
+---
+created: 2025-10-07
+modified: 2025-10-07
+---
+
 In cybersecurity the term **"kill chain** is used to describe the methodology/path attackers such as hackers and APT s use to approach and intrude a target.
 
 Threat modelling, in a cybersecurity context, is a series of steps to ultimately improve the security of a system. Threat modelling is about identifying risk and essentially boils down to:

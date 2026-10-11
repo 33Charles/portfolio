@@ -1,3 +1,8 @@
+---
+created: 2026-03-13
+modified: 2026-03-13
+---
+
 [[XXE]]
 ## XXE to SSRF
 exploiting XXE to perform SSRF attacks
