@@ -1,4 +1,5 @@
 import SkillsGraph from "./SkillsGraph";
+import CVModal from "./CVModal";
 import { site } from "../site";
 
 export default function Hero() {
@@ -89,17 +90,16 @@ export default function Hero() {
             >
               get in touch
             </a>
+            
           </div>
 
-          <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-phos/20 px-4 py-2 font-mono text-[11px] uppercase tracking-wider">
-  <span className="status-dot" aria-hidden="true" />
-  Open to cybersecurity & development opportunities
-</div>
+          <div className="mt-6 w-fit font-mono text-sm rounded-md border border-phos-dim bg-phos/10 px-4 py-2 text-phos transition-colors hover:bg-phos hover:text-bg ">
+            <CVModal />
+          </div>
         </div>
 
         <div>
           <SkillsGraph />
-          
         </div>
       </div>
     </section>

@@ -1,0 +1,236 @@
+
+.view-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  cursor: pointer;
+}
+
+/* .view-cv-btn:hover {
+  background: var(--accent, #5bd68a);
+  color: #101512;
+}
+
+.view-cv-btn:focus-visible,
+.cv-action-btn:focus-visible {
+  outline: 2px solid var(--accent, #5bd68a);
+  outline-offset: 3px;
+} */
+
+.cv-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgb(0 0 0 / 82%);
+  backdrop-filter: blur(8px);
+  animation: cv-overlay-in 160ms ease-out;
+}
+
+.cv-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1050px);
+  height: min(90vh, 900px);
+  overflow: hidden;
+  background: #101411;
+  color: #e6eee8;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 12px;
+  box-shadow: 0 24px 90px rgb(0 0 0 / 55%);
+  animation: cv-modal-in 180ms ease-out;
+}
+
+.cv-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+  background: #151b17;
+}
+
+.cv-modal-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.cv-modal-icon {
+  flex-shrink: 0;
+  color: var(--accent, #5bd68a);
+}
+
+.cv-modal-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cv-modal-heading p {
+  margin: 0.25rem 0 0;
+  color: #929d95;
+  font-size: 0.8rem;
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 38px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 7px;
+  background: transparent;
+  color: #e6eee8;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.cv-action-btn:hover {
+  background: rgb(255 255 255 / 8%);
+  border-color: rgb(255 255 255 / 28%);
+}
+
+.cv-download-btn {
+  background: var(--accent, #5bd68a);
+  border-color: var(--accent, #5bd68a);
+  color: #101512;
+  font-weight: 600;
+}
+
+.cv-download-btn:hover {
+  background: #78e6a0;
+  border-color: #78e6a0;
+}
+
+.cv-close-btn:hover {
+  color: #ff8585;
+}
+
+.cv-modal-viewer {
+  flex: 1;
+  min-height: 0;
+  background: #252925;
+}
+
+.cv-pdf-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cv-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.25rem;
+  border-top: 1px solid rgb(255 255 255 / 10%);
+  color: #929d95;
+  font-size: 0.75rem;
+}
+
+.cv-modal-footer a {
+  color: var(--accent, #5bd68a);
+  text-decoration: none;
+}
+
+.cv-modal-footer a:hover {
+  text-decoration: underline;
+}
+
+@keyframes cv-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cv-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-modal-overlay {
+    padding: 0;
+  }
+
+  .cv-modal {
+    width: 100%;
+    height: 100%;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: 0;
+  }
+
+  .cv-modal-header {
+    padding: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .cv-modal-heading {
+    gap: 0.5rem;
+  }
+
+  .cv-modal-heading h2 {
+    font-size: 0.9rem;
+  }
+
+  .cv-modal-heading p {
+    font-size: 0.72rem;
+  }
+
+  .cv-modal-actions {
+    gap: 0.35rem;
+  }
+
+  .cv-action-btn {
+    min-height: 36px;
+    padding: 0.5rem;
+  }
+
+  .cv-download-btn span {
+    display: none;
+  }
+
+  .cv-modal-footer {
+    padding: 0.7rem 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-modal-overlay,
+  .cv-modal {
+    animation: none;
+  }
+
+  .view-cv-btn,
+  .cv-action-btn {
+    transition: none;
+  }
+}
