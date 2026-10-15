@@ -250,7 +250,7 @@ export default function Certifications() {
         <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4">
           {[
             {
-              value: "03",
+              value: "04",
               label: "Credential links",
               color: "#5bd68a",
             },
@@ -395,21 +395,19 @@ export default function Certifications() {
                 className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white/[0.02] p-4 transition-colors duration-200"
                 style={{ ["--accent" as string]: profile.accent }}
               >
-                {/* Faded accent wash on hover (sits behind content) */}
+
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-                  style={{ backgroundColor: `${profile.accent}1A` }} // ~10% alpha
+                  style={{ backgroundColor: `${profile.accent}1A` }} 
                 />
 
-                {/* Accent bar on the left edge */}
                 <span
                   aria-hidden="true"
                   className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full"
                   style={{ backgroundColor: profile.accent }}
                 />
 
-                {/* Icon tile */}
                 <div
                   className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
                   style={{
@@ -429,7 +427,6 @@ export default function Certifications() {
                   </svg>
                 </div>
 
-                {/* Text */}
                 <div className="relative min-w-0 flex-1">
                   <p
                     className="truncate text-sm font-medium leading-tight"
@@ -442,7 +439,6 @@ export default function Certifications() {
                   </p>
                 </div>
 
-                {/* Arrow */}
                 <span
                   className="relative shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
                   style={{ color: profile.accent }}
