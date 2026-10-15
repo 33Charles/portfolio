@@ -46,12 +46,12 @@ export default function Skills() {
           depth: 4,
           icon: Globe,
           description:
-            "Web reconnaissance and enumeration, attack-surface identification, vulnerability discovery, authentication and session testing, access-control assessment, API security, business-logic testing, and exploitation.",
+            "Web reconnaissance and enumeration, vulnerability assessment, authentication and session testing, access-control assessment, API security, business-logic testing, and exploitation.",
         },
         {
           title: "Network Security",
           level: "Hands-on",
-          depth: 4,
+          depth: 3,
           icon: Radar,
           description:
             "Network reconnaissance and service enumeration, traffic and packet analysis, vulnerability assessment, and network protocol analysis.",
@@ -166,10 +166,10 @@ export default function Skills() {
         {
           title: "Networking",
           level: "Hands-on",
-          depth: 4,
+          depth: 3,
           icon: Cable,
           description:
-            "TCP/IP, DNS, HTTP, routing, network enumeration, packet analysis, and troubleshooting.",
+            "Routing and switching, VLANs, ACLs, NAT, TCP/IP, DNS, firewalls, iDS, IPS and troubleshooting.",
         },
       ],
     },
