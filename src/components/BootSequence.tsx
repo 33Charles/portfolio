@@ -28,12 +28,6 @@ const TONE_CLASS: Record<Tone, string> = {
 
 // A short, plausible Active Directory attack chain (ESC1 -> Domain Admin).
 const SCRIPT: Step[] = [
-  {
-    kind: 'out',
-    text: '# simulated session: lab environment, nothing here touches a real network',
-    tone: 'dim',
-    pause: 450,
-  },
 
   { kind: 'cmd', text: 'nmap -Pn -sCV -p- --min-rate 3000 10.10.11.10' },
   { kind: 'out', text: 'Nmap scan report for dc01.corp.local (10.10.11.10)', tone: 'dim' },
@@ -64,7 +58,7 @@ const SCRIPT: Step[] = [
 
   { kind: 'cmd', text: 'whoami' },
   { kind: 'out', text: site.handle, tone: 'accent' },
-  { kind: 'out', text: `${site.name}, security and frontend`, pause: 300 },
+  { kind: 'out', text: `${site.name}, security researcher and fullstack development`, pause: 300 },
 
   { kind: 'bar', label: 'Mounting /labs-and-notes', ms: 700 },
   { kind: 'bar', label: 'Starting portfolio', ms: 800 },

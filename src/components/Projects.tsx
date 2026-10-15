@@ -119,7 +119,7 @@ export default function Projects() {
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-phos/75">
-                    <span className="h-1.5 w-1.5 rounded-full bg-phos/80" />
+                    <span className="status-dot" aria-hidden="true" />
                     <span>Featured Project</span>
                     <span className="h-px w-8 bg-phos/25" />
                     <span>01</span>
