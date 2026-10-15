@@ -29,7 +29,7 @@ const projects: Project[] = [
   },
   {
     title: "PluseFit",
-    category: "Web Development",
+    category: "Front-end Development",
     description:
       "A modern, responsive gym and fitness website featuring workout programs for weight loss, yoga, strength training, rehabilitation, and endurance. Includes tiered membership plans, trainer profiles, member testimonials, and dedicated gym information pages, built with React, TypeScript, and Tailwind CSS.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
@@ -53,7 +53,7 @@ const projects: Project[] = [
 
   {
     title: "ZaphTours",
-    category: "Web Development",
+    category: "Front-end Development",
     description:
       "A responsive travel and tourism website for exploring destinations and tour packages. Features destination showcases, categorized travel experiences, individual and group pricing, featured tours, testimonials, and contact options to help visitors discover and inquire about travel experiences.",
     tags: ["React", "TypeScript", "Vite", "Material UI", "React Router"],
