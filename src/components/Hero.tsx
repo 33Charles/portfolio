@@ -93,7 +93,7 @@ export default function Hero() {
             
           </div>
 
-          <div className="mt-6 w-fit font-mono text-sm rounded-md border border-phos-dim bg-phos/10 px-4 py-2 text-phos transition-colors hover:bg-phos hover:text-bg ">
+          <div className="mt-4 w-fit font-mono text-sm rounded-md border border-phos-dim bg-phos/10 px-4 py-2 text-phos transition-colors hover:bg-phos hover:text-bg ">
             <CVModal />
           </div>
         </div>
