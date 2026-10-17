@@ -114,9 +114,8 @@ code {
 
 .callout {
   border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  border-left: 2px solid var(--tertiary);
-  background: color-mix(in srgb, var(--tertiary) 6%, transparent);
+  border: 1px solid var(--border);
+  background: var(--bg);
 }
 
 .note-properties {

@@ -5,7 +5,6 @@ created: 2026-10-04
 modified: 2026-10-04
 ---
 
-
 # Network Traffic Analysis: The Complete Field Guide
 
 Primary tools: **Wireshark** (plus tshark, dumpcap, editcap, mergecap, capinfos, text2pcap) and **tcpdump**. Supporting tools: Zeek, Suricata, NetworkMiner, tcpflow, ngrep, Scapy, Arkime, RITA, CyberChef, mitmproxy and others (Part 13).
