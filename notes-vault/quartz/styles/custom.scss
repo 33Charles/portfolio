@@ -136,9 +136,9 @@ code {
 .toc,
 .backlinks,
 .recent-notes {
-   border: 1px solid var(--border-color);
-   border-radius: var(--radius);
-   padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 0;
+  padding: 0.9rem 1rem;
  }
 
 .explorer {
